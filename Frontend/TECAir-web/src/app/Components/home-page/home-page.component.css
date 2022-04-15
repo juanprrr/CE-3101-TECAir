@@ -7,9 +7,16 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif
 }
+main{
+    
+    background-image: url("/assets/images/bground.jpg");
+    background-position: center center;
+    
+}
 
 body {
-    background-color: #dcf4ff
+    background-color: #ffffff
+    
 }
 
 .wrapper {
@@ -110,29 +117,29 @@ input[type="date"] {
     text-transform: uppercase;
     letter-spacing: 0.08rem;
     font-weight: 600;
-    color: #999;
+    color: rgb(255, 255, 255);
     transition: all .2s ease-in-out;
     transform: scale(0)
 }
 
 .wrapper form .label#from::after {
-    content: 'From'
+    content: 'Origen'
 }
 
 .wrapper form .label#to::after {
-    content: 'To'
+    content: 'Destino'
 }
 
 .wrapper form .label#depart::after {
-    content: 'Depart Date'
+    content: 'Fecha de salida'
 }
 
 .wrapper form .label#return::after {
-    content: 'Return Date'
+    content: 'Fecha de regreso'
 }
 
 .wrapper form .label#psngr::after {
-    content: 'Traveller(s)'
+    content: 'Cantidad de pasajeros'
 }
 
 .wrapper form input[type="text"]:focus~.label::after {

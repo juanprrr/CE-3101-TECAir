@@ -3,21 +3,21 @@
     <div class="jumbotron p-3 bg-transparent text-dark">
         <div class="container">
             <h1>Te damos la bienvenida a TECAir</h1>
-            <p>Tu aventura comienza acá. Explorá lo desconocido. </p>
+            <h2>Tu aventura comienza acá. Explorá lo desconocido. </h2>
             <p><a href="#" class="btn btn-secondary btn-lg">Ver catálogo</a></p>
         </div>
     </div>
 
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <h3>Promociones disponibles</h3>
+        
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active" data-bs-interval="5000">
             <img src="assets/images/promo-01.jpg"  class="img-fluid rounded mx-auto d-block"  alt="First slide">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" data-bs-interval="5000">
             <img src="assets/images/promo-02.jpg" class="img-fluid rounded mx-auto d-block" alt="Second slide">
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" data-bs-interval="5000">
             <img src="assets/images/promo-03.jpg" class="img-fluid rounded mx-auto d-block" alt="Third slide">
           </div>
         </div>
@@ -32,31 +32,42 @@
     </div>
 <div class="wrapper bg-transparent">
     <form action="#">
-        <div class="form-group border-bottom d-flex align-items-center justify-content-between flex-wrap"> <label class="option my-sm-0 my-2"> <input type="radio" name="radio" checked>Round Trip <span class="checkmark"></span> </label> <label class="option my-sm-0 my-2"> <input type="radio" name="radio">One Way <span class="checkmark"></span> </label>
-            <div class="d-flex align-items-center my-sm-0 my-2"> <a href="#" class="text-decoration-none"> Multi-city/Stopovers <span class="fas fa-angle-right ps-2 text-primary"></span> </a> </div>
-        </div>
-        <div class="form-group d-sm-flex margin">
-            <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative"> <input type="text" required placeholder="From" class="form-control">
-                <div class="label" id="from"></div> <span class="fas fa-dot-circle text-muted"></span>
+        <div class="form-group border-bottom d-flex align-items-center justify-content-between flex-wrap"> 
+            <label class="option my-sm-0 my-2"> <input type="radio" name="radio" checked>Ida y vuelta <span class="checkmark"></span>
+            </label> 
+            <label class="option my-sm-0 my-2">
+                <input type="radio" name="radio">Solo ida <span class="checkmark"></span> 
+            </label>
+            
             </div>
-            <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> <input type="text" required placeholder="To" class="form-control">
-                <div class="label" id="to"></div> <span class="fas fa-map-marker text-muted"></span>
+            <div class="form-group d-sm-flex margin">
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
+                    <input type="text" required placeholder="Origen" class="form-control">
+                    <div class="label" id="Origen">
+                    </div> 
+                    <span class="fas fa-dot-circle text-muted"></span>
+                </div>
+                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> 
+                    <input type="text" required placeholder="Destino" class="form-control">
+                    <div class="label" id="Destino"></div> <span class="fas fa-map-marker text-muted"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group d-sm-flex margin">
-            <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative"> <input type="date" required placeholder="Depart Date" class="form-control">
-                <div class="label" id="depart"></div>
+            <div class="form-group d-sm-flex margin">
+                <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative"> 
+                    <input type="date" required placeholder="Fecha de salida" class="form-control">
+                    <div class="label" id="depart"></div>
+                </div>
+                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> 
+                    <input type="date" required placeholder="Fecha de regreso" class="form-control">
+                    <div class="label" id="return"></div>
+                </div>
             </div>
-            <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> <input type="date" required placeholder="Return Date" class="form-control">
-                <div class="label" id="return"></div>
+            <div class="form-group border-bottom d-flex align-items-center position-relative"> <input type="text" required placeholder="Cantidad de pasajeros" class="form-control">
+                <div class="label" id="psngr"></div> <span class="fas fa-users text-muted"></span>
             </div>
-        </div>
-        <div class="form-group border-bottom d-flex align-items-center position-relative"> <input type="text" required placeholder="Traveller(s)" class="form-control">
-            <div class="label" id="psngr"></div> <span class="fas fa-users text-muted"></span>
-        </div>
-        <div class="form-group my-3">
-            <div class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3">Search Flights </div>
-        </div>
+            <div class="form-group my-3">
+                <div class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3">Buscar Vuelos </div>
+            </div>
     </form>
 </div>
 </main>
