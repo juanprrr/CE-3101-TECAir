@@ -6,13 +6,27 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { LoginComponent } from './Components/login/login.component';
+import { UserRegisterComponent } from './Components/user-register/user-register.component';
+import { ReservationComponent } from './Components/reservation/reservation.component';
+import { FlightMngmtComponent } from './Components/flight-mngmt/flight-mngmt.component';
+import { CheckInComponent } from './Components/check-in/check-in.component';
+import { BaggageAsgComponent } from './Components/baggage-asg/baggage-asg.component';
+import { OpenFlightComponent } from './Components/open-flight/open-flight.component';
+import { CloseFlightComponent } from './Components/close-flight/close-flight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    UserRegisterComponent,
+    ReservationComponent,
+    FlightMngmtComponent,
+    CheckInComponent,
+    BaggageAsgComponent,
+    OpenFlightComponent,
+    CloseFlightComponent
   ],
   imports: [
     BrowserModule,
