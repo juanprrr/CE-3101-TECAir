@@ -13,47 +13,47 @@ namespace TecAir.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AeroportController : ControllerBase
+    public class AirportController : ControllerBase
     {
         private readonly ToDoDbContext _context;
 
-        public AeroportController(ToDoDbContext context)
+        public AirportController(ToDoDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Aeroport
+        // GET: api/Airport
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AeroportDto>>> GetAeroport()
+        public async Task<ActionResult<IEnumerable<AirportDto>>> GetAirport()
         {
-            return await _context.Aeroport.ToListAsync();
+            return await _context.Airport.ToListAsync();
         }
 
-        // GET: api/Aeroport/5
+        // GET: api/Airport/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<AeroportDto>> GetAeroportDto(int id)
+        public async Task<ActionResult<AirportDto>> GetAirportDto(int id)
         {
-            var aeroportDto = await _context.Aeroport.FindAsync(id);
+            var airportDto = await _context.Airport.FindAsync(id);
 
-            if (aeroportDto == null)
+            if (airportDto == null)
             {
                 return NotFound();
             }
 
-            return aeroportDto;
+            return airportDto;
         }
 
-        // PUT: api/Aeroport/5
+        // PUT: api/Airport/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAeroportDto(int id, AeroportDto aeroportDto)
+        public async Task<IActionResult> PutAirportDto(int id, AirportDto airportDto)
         {
-            if (id != aeroportDto.Id)
+            if (id != airportDto.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(aeroportDto).State = EntityState.Modified;
+            _context.Entry(airportDto).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace TecAir.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AeroportDtoExists(id))
+                if (!AirportDtoExists(id))
                 {
                     return NotFound();
                 }
@@ -74,36 +74,36 @@ namespace TecAir.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Aeroport
+        // POST: api/Airport
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<AeroportDto>> PostAeroportDto(AeroportDto aeroportDto)
+        public async Task<ActionResult<AirportDto>> PostAirportDto(AirportDto airportDto)
         {
-            _context.Aeroport.Add(aeroportDto);
+            _context.Airport.Add(airportDto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAeroportDto", new { id = aeroportDto.Id }, aeroportDto);
+            return CreatedAtAction("GetAirportDto", new { id = airportDto.Id }, airportDto);
         }
 
-        // DELETE: api/Aeroport/5
+        // DELETE: api/Airport/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAeroportDto(int id)
+        public async Task<IActionResult> DeleteAirportDto(int id)
         {
-            var aeroportDto = await _context.Aeroport.FindAsync(id);
-            if (aeroportDto == null)
+            var airportDto = await _context.Airport.FindAsync(id);
+            if (airportDto == null)
             {
                 return NotFound();
             }
 
-            _context.Aeroport.Remove(aeroportDto);
+            _context.Airport.Remove(airportDto);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool AeroportDtoExists(int id)
+        private bool AirportDtoExists(int id)
         {
-            return _context.Aeroport.Any(e => e.Id == id);
+            return _context.Airport.Any(e => e.Id == id);
         }
     }
 }

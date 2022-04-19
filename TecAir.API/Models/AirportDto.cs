@@ -2,7 +2,7 @@
 
 namespace TecAir.API.Models
 {
-    public class AeroportDto
+    public class AirportDto
     {
         [Key]
         public int Id { get; set; }
