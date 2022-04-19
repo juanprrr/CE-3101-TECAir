@@ -6,7 +6,6 @@ namespace TecAir.API.Services
     public class ToDoDbContext : DbContext
     {
         public ToDoDbContext(DbContextOptions<ToDoDbContext> options) : base(options) { }
-        public DbSet<AeroportDto> Aeroport { get; set; }
         public DbSet<AirplaneDto> Airplane { get; set; }
         public DbSet<AirportDto> Airport { get; set; }
         public DbSet<DestinationDto> Destination { get; set; }

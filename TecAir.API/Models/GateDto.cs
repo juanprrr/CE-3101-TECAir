@@ -6,7 +6,6 @@ namespace TecAir.API.Models
     {
         [Key]
         public int Number { get; set; }
-        public string Location { get; set; }
-        public int Id_aeroport { get; set; }
+        public int Id_airport { get; set; }
     }
 }
