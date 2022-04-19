@@ -48,7 +48,7 @@ namespace TecAir.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOriginDto(int id, OriginDto originDto)
         {
-            if (id != originDto.Id_aeroport)
+            if (id != originDto.Id_airport)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace TecAir.API.Controllers
             _context.Origin.Add(originDto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetOriginDto", new { id = originDto.Id_aeroport }, originDto);
+            return CreatedAtAction("GetOriginDto", new { id = originDto.Id_airport }, originDto);
         }
 
         // DELETE: api/Origin/5
@@ -103,7 +103,7 @@ namespace TecAir.API.Controllers
 
         private bool OriginDtoExists(int id)
         {
-            return _context.Origin.Any(e => e.Id_aeroport == id);
+            return _context.Origin.Any(e => e.Id_airport == id);
         }
     }
 }

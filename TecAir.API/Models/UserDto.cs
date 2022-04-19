@@ -11,9 +11,9 @@ namespace TecAir.API.Models
         public string Second_lastname { get; set; }
         public int Phone { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
         public string Type { get; set; }
         public int Student_id { get; set; }
         public int Id_university { get; set; }
+        public string Password { get; set; }
     }
 }
