@@ -1,0 +1,49 @@
+<div class="container">
+    <h4>Seleccione el vuelo que desea</h4>
+    <table class="table table-responsive align-middle">
+        <thead>
+          <tr>
+            <th scope="col"># Vuelo</th>
+            <th scope="col">Hora de salida</th>
+            <th scope="col">Hora de llegada</th>
+            <th scope="col">Paradas</th>
+            <th scope="col">Selección</th>
+          </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>11:20 am</td>
+                    <td>11:00 pm</td>
+                    <td>1</td>
+                    <td>
+                        <input type="radio" name="radio"><span class="checkmark"></span> 
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>11:20 am</td>
+                    <td>11:00 pm</td>
+                    <td>0</td>
+                    <td>
+                        <input type="radio" name="radio"><span class="checkmark"></span> 
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>11:20 am</td>
+                    <td>11:00 pm</td>
+                    <td>3</td>
+                    <td>
+                        <input type="radio" name="radio"><span class="checkmark"></span> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-grid gap-2 d-md-flex rounded-1">
+            <button (click)="goToPage('home_page')" class="btn btn-primary me-md-2 justify-content-md-end" type="button">Confirmar reservación</button>
+            <button (click)="goToPage('home_page')" class="btn btn-warning justify-content-left" type="button">Regresar</button>
+        </div>
+              
+</div>
+
