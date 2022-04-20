@@ -1,3 +1,4 @@
+import { PaymentComponent } from './Components/payment/payment.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'reservation',
     component: ReservationComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
   },
   {
     path: 'flight_mngmnt', 

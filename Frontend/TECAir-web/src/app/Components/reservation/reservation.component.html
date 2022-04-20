@@ -7,6 +7,7 @@
             <th scope="col">Hora de salida</th>
             <th scope="col">Hora de llegada</th>
             <th scope="col">Paradas</th>
+            <th scope="col">Precio (Colones)</th>
             <th scope="col">Selección</th>
           </tr>
         </thead>
@@ -16,6 +17,7 @@
                     <td>11:20 am</td>
                     <td>11:00 pm</td>
                     <td>1</td>
+                    <td>100 000</td>
                     <td>
                         <input type="radio" name="radio"><span class="checkmark"></span> 
                     </td>
@@ -25,6 +27,7 @@
                     <td>11:20 am</td>
                     <td>11:00 pm</td>
                     <td>0</td>
+                    <td>100 000</td>
                     <td>
                         <input type="radio" name="radio"><span class="checkmark"></span> 
                     </td>
@@ -34,6 +37,7 @@
                     <td>11:20 am</td>
                     <td>11:00 pm</td>
                     <td>3</td>
+                    <td>100 000</td>
                     <td>
                         <input type="radio" name="radio"><span class="checkmark"></span> 
                     </td>
@@ -41,7 +45,7 @@
             </tbody>
         </table>
         <div class="d-grid gap-2 d-md-flex rounded-1">
-            <button (click)="goToPage('home_page')" class="btn btn-primary me-md-2 justify-content-md-end" type="button">Confirmar reservación</button>
+            <button (click)="goToPage('payment')" class="btn btn-primary me-md-2 justify-content-md-end" type="button">Confirmar reservación</button>
             <button (click)="goToPage('home_page')" class="btn btn-warning justify-content-left" type="button">Regresar</button>
         </div>
               

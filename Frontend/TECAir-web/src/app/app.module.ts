@@ -13,6 +13,7 @@ import { CheckInComponent } from './Components/check-in/check-in.component';
 import { BaggageAsgComponent } from './Components/baggage-asg/baggage-asg.component';
 import { OpenFlightComponent } from './Components/open-flight/open-flight.component';
 import { CloseFlightComponent } from './Components/close-flight/close-flight.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CloseFlightComponent } from './Components/close-flight/close-flight.com
     CheckInComponent,
     BaggageAsgComponent,
     OpenFlightComponent,
-    CloseFlightComponent
+    CloseFlightComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
