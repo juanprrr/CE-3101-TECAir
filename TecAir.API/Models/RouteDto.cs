@@ -7,6 +7,5 @@ namespace TecAir.API.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public float Duration { get; set; }
     }
 }
