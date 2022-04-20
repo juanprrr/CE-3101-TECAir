@@ -31,7 +31,7 @@ namespace TecAir.API.Controllers
 
         // GET: api/Gate/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GateDto>> GetGateDto(int id)
+        public async Task<ActionResult<GateDto>> GetGateDto(string id)
         {
             var gateDto = await _context.Gate.FindAsync(id);
 
@@ -46,7 +46,7 @@ namespace TecAir.API.Controllers
         // PUT: api/Gate/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGateDto(int id, GateDto gateDto)
+        public async Task<IActionResult> PutGateDto(string id, GateDto gateDto)
         {
             if (id != gateDto.Number)
             {
@@ -80,14 +80,28 @@ namespace TecAir.API.Controllers
         public async Task<ActionResult<GateDto>> PostGateDto(GateDto gateDto)
         {
             _context.Gate.Add(gateDto);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (GateDtoExists(gateDto.Number))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtAction("GetGateDto", new { id = gateDto.Number }, gateDto);
         }
 
         // DELETE: api/Gate/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteGateDto(int id)
+        public async Task<IActionResult> DeleteGateDto(string id)
         {
             var gateDto = await _context.Gate.FindAsync(id);
             if (gateDto == null)
@@ -101,7 +115,7 @@ namespace TecAir.API.Controllers
             return NoContent();
         }
 
-        private bool GateDtoExists(int id)
+        private bool GateDtoExists(string id)
         {
             return _context.Gate.Any(e => e.Number == id);
         }
