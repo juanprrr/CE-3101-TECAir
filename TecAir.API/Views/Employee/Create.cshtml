@@ -1,0 +1,63 @@
+﻿@model TecAir.API.Models.EmployeeDto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>EmployeeDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="First_lastname" class="control-label"></label>
+                <input asp-for="First_lastname" class="form-control" />
+                <span asp-validation-for="First_lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Second_lastname" class="control-label"></label>
+                <input asp-for="Second_lastname" class="form-control" />
+                <span asp-validation-for="Second_lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id_aeroport" class="control-label"></label>
+                <input asp-for="Id_aeroport" class="form-control" />
+                <span asp-validation-for="Id_aeroport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Id_role" class="control-label"></label>
+                <input asp-for="Id_role" class="form-control" />
+                <span asp-validation-for="Id_role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
