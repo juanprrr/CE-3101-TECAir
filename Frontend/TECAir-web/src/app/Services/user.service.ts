@@ -7,8 +7,8 @@ import { User } from '../Models/user';
   providedIn: 'root'
 })
 export class UserService {
-  url = 'https://localhost:7293/api/User';
-  constructor(private httpclient:HttpClient) { }
+  url = '/api/User';
+  constructor(private httpclient:HttpClient) { console.log('User Service') }
   
   //GetUsers
   getUsers():Observable<any>{
