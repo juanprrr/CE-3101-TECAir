@@ -15,6 +15,17 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 });
 */
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200/", "http://127.0.0.1:4200/")
+            .AllowAnyHeader()
+            .WithMethods("POST", "GET");
+        });
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
