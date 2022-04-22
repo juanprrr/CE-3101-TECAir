@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../Models/user';
@@ -21,7 +21,7 @@ export class UserService {
   }
   //PostUser
   insertUser(user:User):Observable<any>{
-    return this.httpclient.post(this.url, user)
+    return this.httpclient.post(this.url, user, this.generateHeaders())
   }
   //UpdateUser
   updateUser(user:User):Observable<any>{
@@ -30,5 +30,13 @@ export class UserService {
   //DeleteUser
   deleteUser(Id:number):Observable<any>{
     return this.httpclient.delete(this.url + Id)
+  }
+  private generateHeaders = () => {
+    return {
+      headers: new HttpHeaders({
+        "Access-Control-Allow-Origin": "*", // este header es para permitir todos los CORS necesarios de los requests
+        'Content-Type': 'application/json'
+      })
+    }
   }
 }
