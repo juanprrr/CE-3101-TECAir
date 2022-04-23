@@ -34,7 +34,7 @@ export class UserService {
   private generateHeaders = () => {
     return {
       headers: new HttpHeaders({
-        "Access-Control-Allow-Origin": "*", // este header es para permitir todos los CORS necesarios de los requests
+        "Access-Control-Allow-Origin": "*", 
         'Content-Type': 'application/json'
       })
     }

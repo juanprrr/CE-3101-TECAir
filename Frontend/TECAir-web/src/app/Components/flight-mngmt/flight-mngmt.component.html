@@ -12,6 +12,38 @@
             Registrar ruta
         </button> 
     </div>
+    <!--
+        VIAJE
+    -->
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese número de viaje</label>
+      <input type="number" [(ngModel)]="newTravel.Number" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de viaje" aria-label="Número de viaje">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese nombre de viaje</label>
+      <input type="text" [(ngModel)]="newTravel.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de viaje" aria-label="Nombre de viaje">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese ruta del viaje</label>
+        <select  class="form-select form-select-sm"  [(ngModel)]="newTravel.Id_route" [ngModelOptions]="{standalone: true}" aria-label=".form-select-sm example">
+            <option [ngValue]="null">--Select--</option> <!-- Default item to show -->
+            <option *ngFor="let opts of routeList" [value]="opts.Id" type="text">
+         {{opts.Name}}
+            </select>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese fecha y hora de salida</label>
+      <input type="datetime-local" [(ngModel)]="newTravel.Departure_time" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Hora Salida" aria-label="Hora Salida">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese fecha y hora de llegada</label>
+      <input type="datetime-local" [(ngModel)]="newTravel.Arrival_time" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Hora llegada" aria-label="Hora llegada">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success text-center form-control" (click)="addTravel(newTravel)" type="submit">
+            Registrar viaje
+        </button> 
+    </div>
     
 
   </div>
