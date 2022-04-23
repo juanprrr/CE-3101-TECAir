@@ -1,5 +1,5 @@
 export class University {
-    Id:number | undefined
-    Name:string | undefined
-    Location:string | undefined
+    id:number | undefined
+    name:string | undefined
+    location:string | undefined
 }

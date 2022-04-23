@@ -45,8 +45,10 @@
                         <p>¿Está en la universidad?</p>
                         <div class="input-group mb-3">
                             <span class="input-group-text bg-primary"><i
-                                    class="bi bi-bank text-white"></i></span>
-                            <input type="number" [(ngModel)]="newUser.Id_university" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de universidad">
+                                class="bi bi-bank text-white"></i></span>
+                            <select [(ngModel)]="newUser.Id_university" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de universidad">
+                                <option *ngFor="let opt of universitiesList" value={{opt.id}}>{{opt.name}}</option>
+                            </select>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text bg-primary"><i
