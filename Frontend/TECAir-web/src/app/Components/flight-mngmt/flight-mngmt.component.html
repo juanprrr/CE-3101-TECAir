@@ -1,53 +1,69 @@
-<div class="container">
+<div class="row g-3 shadow-lg p-5 bg-dark" style="margin-top:10px">
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese número de ruta</label>
+      <input type="number" [(ngModel)]="newRoute.Id" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de ruta" aria-label="Número de ruta">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese nombre de ruta</label>
+      <input type="text" [(ngModel)]="newRoute.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de ruta" aria-label="Nombre de ruta">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success text-center form-control" (click)="addRoute(newRoute)" type="submit">
+            Registrar ruta
+        </button> 
+    </div>
+    
 
-    <div class="container-fluid vh-100" style="margin-top:100px">
-        <div class="" style="margin-top:100px">
-            <div class="rounded d-flex justify-content-center">
-                <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
-                    <div class="text-center">
-                        <h3 class="text-primary">Registrar vuelo</h3>
-                    </div>
-                    <form action="">
-                        <div class="p-4">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto Origen">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi bi-pin-map-fill text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto Destino">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-card-heading text-white"></i></span>
-                                <input type="number" class="form-control" placeholder="Matrícula de avión">
-                            </div>
-                           <p>Aeropuertos intermedios</p> 
-                           <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto 1">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto 2">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto 3">
-                            </div>  
-                            <button class="btn btn-primary text-center mt-2" type="submit">
-                                Registrar
-                            </button>  
-                        </div>
-                    </form>
+  </div>
+
+<div class="container-fluid vh-100" style="margin-top:100px">
+    <div class="" style="margin-top:100px">
+        <div class="rounded-1 d-flex">
+            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
+                <div class="text-center">
+                    <h3 class="text-primary">Registrar vuelo</h3>
                 </div>
+                <form action="">
+                    <div class="p-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto Origen">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi bi-pin-map-fill text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto Destino">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-card-heading text-white"></i></span>
+                            <input type="number" class="form-control" placeholder="Matrícula de avión">
+                        </div>
+                        <p>Aeropuertos intermedios</p> 
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto 1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto 2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto 3">
+                        </div>  
+                        <button class="btn btn-primary text-center mt-2" type="submit">
+                            Registrar
+                        </button>  
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 
