@@ -35,6 +35,10 @@ const routes: Routes = [
     component: FlightMngmtComponent
   },
   {
+    path: 'flight_mngmnt/redirect', 
+    component: FlightMngmtComponent
+  },
+  {
     path: 'open_flight', 
     component: OpenFlightComponent
   },
