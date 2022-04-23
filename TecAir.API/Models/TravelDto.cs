@@ -10,6 +10,7 @@ namespace TecAir.API.Models
         public int Id_route { get; set; }
         public DateTime Departure_time { get; set; }
         public DateTime Arrival_time { get; set; }
-        public int Id_airport { get; set; }
+        public int Id_origin { get; set; }
+        public int Id_destination { get; set; }
     }
 }
