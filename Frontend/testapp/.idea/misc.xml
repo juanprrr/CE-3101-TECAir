@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/drawable/ic_baseline_airplane.xml" value="0.1445" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_home.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_flights.xml" value="0.1" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_promos.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/register_activity.xml" value="0.1" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/menu/nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/Ignacio/Documents/TEC/2022S1/Bses/testapp/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ignacio/Documents/TEC/2022S1/Bses/testapp/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Ignacio/Documents/TEC/2022S1/Bses/testapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2595" />
