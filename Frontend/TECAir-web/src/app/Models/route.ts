@@ -1,4 +1,5 @@
 export class Route {
-    Id:number | undefined
-    Name:string | undefined
+    id:number = 0;
+    name:string = "default";
+
 }

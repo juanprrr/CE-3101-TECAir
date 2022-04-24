@@ -4,6 +4,8 @@ import { RouteService } from './../../Services/route.service';
 import { Route } from './../../Models/route';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { plainToInstance } from "class-transformer";
+
 @Component({
   selector: 'app-flight-mngmt',
   templateUrl: './flight-mngmt.component.html',
@@ -13,7 +15,7 @@ export class FlightMngmtComponent implements OnInit {
 
   newRoute: Route = new Route
   newTravel: Travel = new Travel
-  routeList: Route[] =[] 
+  routeList: Route[]=[];
   constructor(private service:RouteService, 
     private travelService: TravelService, private router:Router) { }
 
@@ -22,9 +24,10 @@ export class FlightMngmtComponent implements OnInit {
   }
 
   getRoutes(){
-    this.service.getRoutes().subscribe( data=> {
-      console.log("REQUEST:  " + JSON.stringify(data));
-      this.routeList =  data as Route[]})
+    this.service.getRoutes().subscribe( (routes:Route[]) => {
+      console.log("REQUEST" + JSON.stringify(routes));
+      this.routeList =  plainToInstance(Route, routes);
+    })
   }
 
   addRoute(newRoute:Route){
@@ -39,5 +42,6 @@ export class FlightMngmtComponent implements OnInit {
       //this.router.navigate(['/'])
     }, ()=>alert("No se pudo registrar viaje"))
   }
-  
+
+
 }

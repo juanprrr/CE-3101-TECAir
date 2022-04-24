@@ -12,8 +12,8 @@ export class RouteService {
   constructor(private httpclient:HttpClient) { console.log('Routes Service') }
 
     //GetRoutes
-  getRoutes():Observable<any>{
-      return this.httpclient.get(this.url)
+  getRoutes():Observable<Route[]>{
+      return this.httpclient.get<Route[]>(this.url)
   }
   //GetRoutesbyId
   getRoutebyId(Id:number):Observable<Route>{
@@ -21,8 +21,8 @@ export class RouteService {
     return this.httpclient.get<Route>(this.url, {params:params})
   }
  //PostRoute
- insertRoute(route:Route):Observable<any>{
-  return this.httpclient.post(this.url, route, this.generateHeaders())
+ insertRoute(route:Route):Observable<Route>{
+  return this.httpclient.post<Route>(this.url, route, this.generateHeaders())
 }
 private generateHeaders = () => {
   return {

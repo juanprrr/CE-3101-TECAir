@@ -1,11 +1,11 @@
 <div class="row g-3 shadow-lg p-5 bg-dark" style="margin-top:10px">
     <div class="col-md-4 col-sm-12">
         <label>Ingrese número de ruta</label>
-      <input type="number" [(ngModel)]="newRoute.Id" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de ruta" aria-label="Número de ruta">
+      <input type="number" [(ngModel)]="newRoute.id" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de ruta" aria-label="Número de ruta">
     </div>
     <div class="col-md-4 col-sm-12">
         <label>Ingrese nombre de ruta</label>
-      <input type="text" [(ngModel)]="newRoute.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de ruta" aria-label="Nombre de ruta">
+      <input type="text" [(ngModel)]="newRoute.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de ruta" aria-label="Nombre de ruta">
     </div>
     <div class="col-md-4">
         <button class="btn btn-success text-center form-control" (click)="addRoute(newRoute)" type="submit">
@@ -23,13 +23,13 @@
         <label>Ingrese nombre de viaje</label>
       <input type="text" [(ngModel)]="newTravel.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de viaje" aria-label="Nombre de viaje">
     </div>
-    <div class="col-md-4 col-sm-12">
+    <div class="form-group col-md-4 col-sm-12">
         <label>Ingrese ruta del viaje</label>
-        <select  class="form-select form-select-sm"  [(ngModel)]="newTravel.Id_route" [ngModelOptions]="{standalone: true}" aria-label=".form-select-sm example">
-            <option [ngValue]="null">--Select--</option> <!-- Default item to show -->
-            <option *ngFor="let opts of routeList" [value]="opts.Id" type="text">
-         {{opts.Name}}
-            </select>
+        <select  class="form-select form-select-sm"  [(ngModel)]="newTravel.Id_route" [ngModelOptions]="{standalone: true}" aria-label="Selección">
+            <option [ngValue]="0">--Select--</option> <!-- Default item to show -->
+            <option *ngFor="let opts of routeList " [ngValue]="opts.id" type="text">
+         {{opts.name}}</option>
+        </select>
     </div>
     <div class="col-md-4 col-sm-12">
         <label>Ingrese fecha y hora de salida</label>
