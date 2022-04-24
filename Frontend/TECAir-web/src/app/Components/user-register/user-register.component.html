@@ -1,0 +1,67 @@
+<div class="container-fluid vh-100" style="margin-top:100px">
+    <div class="" style="margin-top:100px">
+        <div class="rounded d-flex justify-content-center">
+            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
+                <div class="text-center">
+                    <h3 class="text-primary">Registrar cliente</h3>
+                </div>
+                <form action="">
+                    <div class="p-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-person-plus-fill text-white"></i></span>
+                            <input type="name" [(ngModel)]="newUser.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-person-plus-fill text-white"></i></span>
+                            <input type="name" [(ngModel)]="newUser.First_lastname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Primer Apellido">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-person-plus-fill text-white"></i></span>
+                            <input type="name" [(ngModel)]="newUser.Second_lastname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Segundo Apellido">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-person-badge-fill text-white"></i></span>
+                            <input type="email" [(ngModel)]="newUser.Email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Correo">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-card-heading text-white"></i></span>
+                            <input type="number" [(ngModel)]="newUser.Id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de cédula">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-key-fill text-white"></i></span>
+                            <input type="password" [(ngModel)]="newUser.Password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Contraseña">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-telephone-fill text-white"></i></span>
+                            <input type="number" [(ngModel)]="newUser.Phone" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Teléfono">
+                        </div>
+                        <p>¿Está en la universidad?</p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-bank text-white"></i></span>
+                            <input type="number" [(ngModel)]="newUser.Id_university" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de universidad">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-card-heading text-white"></i></span>
+                            <input type="number" [(ngModel)]="newUser.Student_id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de carné">
+                        </div>
+                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="addUser(newUser)">
+                            Registrar
+                        </button>
+                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="goToPage('/')">
+                            Salir
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
