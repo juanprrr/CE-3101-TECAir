@@ -1,0 +1,22 @@
+[
+    {
+        "nombre":"Inicio",
+        "redirect":"/dashboard/inicio"
+    },
+    {
+        "nombre":"Vuelos",
+        "redirect":"/dashboard/vuelos"
+    },
+    {
+        "nombre":"Reservas",
+        "redirect":"/dashboard/promociones"
+    },
+    {
+        "nombre":"Ingresar",
+        "redirect":"/dashboard/ingresar"
+    },
+    {
+        "nombre":"Registarse",
+        "redirect":"/dashboard/registarse"
+    }
+]
