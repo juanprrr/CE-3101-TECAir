@@ -10,7 +10,7 @@
 main{
     
     background-image: url("/assets/images/bground.jpg");
-    background-position: center center;
+    background-position: center center fixed;
     
 }
 

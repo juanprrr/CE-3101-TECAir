@@ -1,53 +1,101 @@
-<div class="container">
+<div class="row g-3 shadow-lg p-5 bg-dark" style="margin-top:10px">
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese número de ruta</label>
+      <input type="number" [(ngModel)]="newRoute.id" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de ruta" aria-label="Número de ruta">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese nombre de ruta</label>
+      <input type="text" [(ngModel)]="newRoute.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de ruta" aria-label="Nombre de ruta">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success text-center form-control" (click)="addRoute(newRoute)" type="submit">
+            Registrar ruta
+        </button> 
+    </div>
+    <!--
+        VIAJE
+    -->
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese número de viaje</label>
+      <input type="number" [(ngModel)]="newTravel.Number" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de viaje" aria-label="Número de viaje">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese nombre de viaje</label>
+      <input type="text" [(ngModel)]="newTravel.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de viaje" aria-label="Nombre de viaje">
+    </div>
+    <div class="form-group col-md-4 col-sm-12">
+        <label>Ingrese ruta del viaje</label>
+        <select  class="form-select form-select-sm"  [(ngModel)]="newTravel.Id_route" [ngModelOptions]="{standalone: true}" aria-label="Selección">
+            <option [ngValue]="0">--Select--</option> <!-- Default item to show -->
+            <option *ngFor="let opts of routeList " [ngValue]="opts.id" type="text">
+         {{opts.name}}</option>
+        </select>
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese fecha y hora de salida</label>
+      <input type="datetime-local" [(ngModel)]="newTravel.Departure_time" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Hora Salida" aria-label="Hora Salida">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <label>Ingrese fecha y hora de llegada</label>
+      <input type="datetime-local" [(ngModel)]="newTravel.Arrival_time" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Hora llegada" aria-label="Hora llegada">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success text-center form-control" (click)="addTravel(newTravel)" type="submit">
+            Registrar viaje
+        </button> 
+    </div>
+    
 
-    <div class="container-fluid vh-100" style="margin-top:100px">
-        <div class="" style="margin-top:100px">
-            <div class="rounded d-flex justify-content-center">
-                <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
-                    <div class="text-center">
-                        <h3 class="text-primary">Registrar vuelo</h3>
-                    </div>
-                    <form action="">
-                        <div class="p-4">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto Origen">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi bi-pin-map-fill text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto Destino">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-card-heading text-white"></i></span>
-                                <input type="number" class="form-control" placeholder="Matrícula de avión">
-                            </div>
-                           <p>Aeropuertos intermedios</p> 
-                           <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto 1">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto 2">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text bg-primary"><i
-                                        class="bi bi-pin-map text-white"></i></span>
-                                <input type="text" class="form-control" placeholder="Aeropuerto 3">
-                            </div>  
-                            <button class="btn btn-primary text-center mt-2" type="submit">
-                                Registrar
-                            </button>  
-                        </div>
-                    </form>
+  </div>
+
+<div class="container-fluid vh-100" style="margin-top:100px">
+    <div class="" style="margin-top:100px">
+        <div class="rounded-1 d-flex">
+            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
+                <div class="text-center">
+                    <h3 class="text-primary">Registrar vuelo</h3>
                 </div>
+                <form action="">
+                    <div class="p-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto Origen">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi bi-pin-map-fill text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto Destino">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-card-heading text-white"></i></span>
+                            <input type="number" class="form-control" placeholder="Matrícula de avión">
+                        </div>
+                        <p>Aeropuertos intermedios</p> 
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto 1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto 2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-pin-map text-white"></i></span>
+                            <input type="text" class="form-control" placeholder="Aeropuerto 3">
+                        </div>  
+                        <button class="btn btn-primary text-center mt-2" type="submit">
+                            Registrar
+                        </button>  
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 
