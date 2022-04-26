@@ -1,11 +1,11 @@
 export class Employee {
-    Id:number | undefined
-    Name:string | undefined
-    First_lastname:string | undefined
-    Second_lastname:string | undefined
-    Phone:number | undefined
-    Email:string | undefined
-    Id_aeroport: number | undefined
-    Id_role: string | undefined
-    Password:string | undefined
+    id:number | undefined
+    name:string | undefined
+    first_lastname:string | undefined
+    second_lastname:string | undefined
+    phone:number | undefined
+    email:string | undefined
+    id_aeroport: number | undefined
+    id_role: number | undefined
+    password:string | undefined
 }
