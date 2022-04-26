@@ -67,59 +67,54 @@
             Registrar viaje
         </button> 
     </div>
-    <div class="col-md-4 col-sm-12">
-        <span class="col-md-4 col-sm-12 bg-dark"><i
-                class="bi bi bi-pin-map-fill text-white"></i>   Ingrese ciudad de aeropuerto destino  </span>
-        <select  class="form-select form-select-sm"  [(ngModel)]="newTravel.id_destination" [ngModelOptions]="{standalone: true}" aria-label="Selección">
-            <option [ngValue]="0">--Select--</option> <!-- Default item to show -->
-            <option *ngFor="let opts of airportList " [ngValue]="opts.id" type="text">
-            {{opts.city}}</option>
-        </select>
-    </div>
     <h5>Registro de Vuelos</h5>
     <div class="col-md-4 col-sm-12">
+        <label>Ingrese número de vuelo</label>
+      <input type="number" [(ngModel)]="newFlight.id" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Número de vuelo" aria-label="Número de vuelo">
+    </div>
 
-  </div>
+    <div class="col-md-4 col-sm-12">   
+        <label>Ingrese precio de vuelo en colones</label>
+      <input type="number" [(ngModel)]="newFlight.cost" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Costo" aria-label="Costo">
+    </div>
 
-<div class="container-fluid vh-100" style="margin-top:100px">
-    <div class="" style="margin-top:100px">
-        <div class="rounded-1 d-flex">
-            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
-                <div class="text-center">
-                    <h3 class="text-primary">Registrar vuelo</h3>
-                </div>
-                <form action="">
-                    <div class="p-4">
-                        
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-card-heading text-white"></i></span>
-                            <input type="number" class="form-control" placeholder="Matrícula de avión">
-                        </div>
-                        <p>Aeropuertos intermedios</p> 
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-pin-map text-white"></i></span>
-                            <input type="text" class="form-control" placeholder="Aeropuerto 1">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-pin-map text-white"></i></span>
-                            <input type="text" class="form-control" placeholder="Aeropuerto 2">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-pin-map text-white"></i></span>
-                            <input type="text" class="form-control" placeholder="Aeropuerto 3">
-                        </div>  
-                        <button class="btn btn-primary text-center mt-2" type="submit">
-                            Registrar
-                        </button>  
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="col-md-4 col-sm-12">   
+        <label>Ingrese Matrícula del avion</label>
+        <select  class="form-select form-select-sm"  [(ngModel)]="newFlight.id_airplane" [ngModelOptions]="{standalone: true}" aria-label="Selección">
+            <option [ngValue]="0">--Select--</option> <!-- Default item to show -->
+            <option *ngFor="let opts of airplaneList " [ngValue]="opts.registration" type="text">
+            {{opts.registration}}</option>
+        </select>
+    </div>
+    <div class="col-md-4 col-sm-12">   
+        <label>Ingrese status del vuelo</label>
+        <select  class="form-select form-select-sm"  [(ngModel)]="newFlight.status" [ngModelOptions]="{standalone: true}" aria-label="Selección">
+            <option value="indefinido">--Indefinido--</option> <!-- Default item to show -->
+           
+        </select>
+    </div>
+
+    <div class="col-md-4 col-sm-12">   
+        <label>Ingrese número de pasajeros</label>
+      <input type="number" [(ngModel)]="newFlight.number_of_passengers" [ngModelOptions]="{standalone: true}"  class="form-control" placeholder="Capacidad" aria-label="Capacidad">
+    </div>
+
+     <div class="form-group col-md-4 col-sm-12">
+        <label>Ingrese ruta del vuelo</label>
+        <select  class="form-select form-select-sm"  [(ngModel)]="newFlight.id_ruta" [ngModelOptions]="{standalone: true}" aria-label="Selección">
+            <option [ngValue]="0">--Select--</option> <!-- Default item to show -->
+            <option *ngFor="let opts of routeList " [ngValue]="opts.id" type="text">
+         {{opts.name}}</option>
+        </select>
+    </div>
+
+    <div class="col-md-4">
+        <button class="btn btn-success text-center form-control" (click)="addFlight(newFlight)" type="submit">
+            Registrar vuelo
+        </button> 
     </div>
 </div>
+
+
 
 
