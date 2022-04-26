@@ -1,3 +1,5 @@
+import { AirportService } from './../../Services/airport.service';
+import { Airport } from './../../Models/airport';
 import { TravelService } from './../../Services/travel.service';
 import { Travel } from './../../Models/travel';
 import { RouteService } from './../../Services/route.service';
@@ -16,11 +18,20 @@ export class FlightMngmtComponent implements OnInit {
   newRoute: Route = new Route
   newTravel: Travel = new Travel
   routeList: Route[]=[];
+  airportList: Airport[]=[]
+
   constructor(private service:RouteService, 
-    private travelService: TravelService, private router:Router) { }
+    private travelService: TravelService, private router:Router, private airport:AirportService) { }
 
   ngOnInit(): void {
     this.getRoutes();
+    this.getAirport();
+  }
+  getAirport() {
+    this.airport.getAirport().subscribe( (airports:Airport[]) => {
+      console.log("REQUEST" + JSON.stringify(airports));
+      this.airportList =  plainToInstance(Airport, airports);
+    })
   }
 
   getRoutes(){

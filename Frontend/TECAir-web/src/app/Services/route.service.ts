@@ -17,7 +17,7 @@ export class RouteService {
   }
   //GetRoutesbyId
   getRoutebyId(Id:number):Observable<Route>{
-    let params = new HttpParams().set('Id', Id)
+    let params = new HttpParams().set('id', Id)
     return this.httpclient.get<Route>(this.url, {params:params})
   }
  //PostRoute
