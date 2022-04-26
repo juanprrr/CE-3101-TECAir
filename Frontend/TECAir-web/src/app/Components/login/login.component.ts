@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
         this.logged = true
       }
     }
+    if (!this.logged){
+      alert("Usuario o contraseña incorrectos!")
+    }
   }
   
 }
