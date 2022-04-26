@@ -1,8 +1,9 @@
 export class Travel {
-    Number:number | undefined
-    Name:string | undefined
-    Id_route:number | undefined
-    Departure_time: Date | undefined
-    Arrival_time: Date | undefined
-    Id_Airport: number | undefined
+    number:number | undefined
+    name:string | undefined
+    id_route:number | undefined
+    departure_time: Date | undefined
+    arrival_time: Date | undefined
+    id_origin: number | undefined
+    id_destination: number | undefined
 }
