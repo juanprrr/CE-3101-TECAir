@@ -23,7 +23,7 @@ export class UserRegisterComponent implements OnInit {
 
   addUser(newUse:User){
     this.service.insertUser(newUse).subscribe(()=>{
-      this.goToPage('/')
+      this.goToPage('home_page')
     },()=>alert("No se pudo registrar su usuario, porfavor intente de nuevo!"))
   }
   
