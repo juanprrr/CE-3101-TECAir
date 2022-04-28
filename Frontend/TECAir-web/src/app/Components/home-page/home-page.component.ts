@@ -1,5 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Airport } from 'src/app/Models/airport';
+import { AirportService } from 'src/app/Services/airport.service';
+import { Travel } from 'src/app/Models/travel';
 
 @Component({
   selector: 'app-home-page',
@@ -7,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  airportsList:Airport[] = []
+  airport:Airport = new Airport
+  travel:Travel = new Travel
 
-  constructor(private router: Router) { }
+  constructor(private service:AirportService, private router: Router) { }
 
   ngOnInit(): void {
+    this.service.getAirport().subscribe((data:any)=>{this.airportsList = data})
   }
   
   goToPage(pageName:string){
