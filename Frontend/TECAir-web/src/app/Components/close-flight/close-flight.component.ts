@@ -19,21 +19,17 @@ export class CloseFlightComponent implements OnInit {
   constructor(private service:FlightService, private routeService:RouteService) { }
 
   ngOnInit(): void {
-    this.service.getFlight().subscribe((data:any)=>{
-      this.flightsList = data
-      this.flightsList.map((re: any) => {
-        re.checked = false
-      })
-      console.log(this.flightsList)
-    })
+    this.service.getFlight().subscribe((data:any)=>{this.flightsList = data})
     this.routeService.getRoutes().subscribe((data:any)=>{this.routesList = data})
   }
 
-  delFlight(delFlt:Flight){
-    this.service.deleteFlight(delFlt.id).subscribe(()=>{},()=>alert("No se pudo eliminar el vuelo, porfavor intente de nuevo!"))
+  closeFlight(putFlt:Flight){
+    putFlt.status = 'closed'
+    this.service.updateFlight(putFlt).subscribe(()=>{alert("El vuelo se cerró exitosamente!")},()=>alert("No se pudo cerrar el vuelo!"))
   }
 
-  checkAll(event:any){
-    
+  openFlight(putFlt:Flight){
+    putFlt.status = 'openned'
+    this.service.updateFlight(putFlt).subscribe(()=>{alert("El vuelo se abrió exitosamente!")},()=>alert("No se pudo cerrar el vuelo, porfavor intente de nuevo!"))
   }
 }

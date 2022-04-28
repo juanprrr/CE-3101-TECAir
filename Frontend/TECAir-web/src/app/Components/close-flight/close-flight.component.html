@@ -1,5 +1,5 @@
 <div class="container">
-    <h4>Lista oficial de pasajeros</h4>
+    <h4>Lista oficial de vuelos</h4>
     <table class="table table-responsive justify-content-between">
         <thead>
           <tr>
@@ -7,21 +7,24 @@
             <th scope="col">Destino</th>
             <th scope="col">Avion</th>
             <th scope="col">Estado</th>
-            <th><input type="checkbox"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
             <tbody *ngFor='let rot of routesList'>
                 <tr *ngFor='let flt of flightsList;let i = index'>
-                    <th scope="row">{{flt.id}}</th>
+                    <th scope="row" *ngIf='flt.id_ruta == rot.id'>{{flt.id}}</th>
                     <td *ngIf='flt.id_ruta == rot.id'>{{rot.name}}</td>
-                    <td>{{flt.id_airplane}}</td>
-                    <td>{{flt.status}}</td>
-                    <th><input type="checkbox" [(ngModel)]="flight.id"></th>
+                    <td *ngIf='flt.id_ruta == rot.id'>{{flt.id_airplane}}</td>
+                    <td *ngIf='flt.id_ruta == rot.id'>{{flt.status}}</td>
+                    <td *ngIf='flt.id_ruta == rot.id'>
+                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="closeFlight(flt)">Cerrar</button>
+                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="openFlight(flt)">Abrir</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
         <div class="d-grid gap-2 d-md-flex rounded-1">
-            <button class="btn btn-warning justify-content-left" type="button" (click)="delFlight(flight)">Cerrar Vuelo</button>
+            
         </div>             
 </div>
 
