@@ -8,28 +8,28 @@ import { Observable } from 'rxjs';
 })
 export class FlightService {
 
-  url = "/api/Flight";
+  url = "/api/Flight/";
   constructor(private httpclient:HttpClient) { console.log('Flight Service') }
   
-  //GetUsers
+  //GetFlights
   getFlight():Observable<any>{
     return this.httpclient.get(this.url)
   }
-  //GetUserbyId
+  //GetFlightbyId
   getFlightbyId(Id:number):Observable<Flight>{
     let params = new HttpParams().set('id', Id)
     return this.httpclient.get<Flight>(this.url, {params:params})
   }
-  //PostUser
+  //PostFlight
   insertFlight(flight:Flight):Observable<any>{
     return this.httpclient.post(this.url, flight, this.generateHeaders())
   }
-  //UpdateUser
-  updateFlight(flight:number):Observable<any>{
+  //UpdateFlight
+  updateFlight(flight:Flight):Observable<any>{
     
-    return this.httpclient.put(this.url + flight, this.generateHeaders())
+    return this.httpclient.put(this.url + flight.id, flight, this.generateHeaders())
   }
-  //DeleteUser
+  //DeleteFlight
   deleteFlight(Id:number):Observable<any>{
     return this.httpclient.delete(this.url + Id, this.generateHeaders())
   }

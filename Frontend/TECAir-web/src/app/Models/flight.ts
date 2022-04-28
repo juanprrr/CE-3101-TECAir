@@ -1,5 +1,5 @@
 export class Flight {
-    id:number | undefined
+    id:number=0
     cost: number | undefined
     number_of_passengers : number | undefined
     status: string | undefined
