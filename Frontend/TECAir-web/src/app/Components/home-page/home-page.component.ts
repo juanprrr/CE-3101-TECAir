@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Airport } from 'src/app/Models/airport';
 import { AirportService } from 'src/app/Services/airport.service';
-import { Travel } from 'src/app/Models/travel';
+import { FlightSearch } from 'src/app/Models/flight-search';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +12,7 @@ import { Travel } from 'src/app/Models/travel';
 export class HomePageComponent implements OnInit {
   airportsList:Airport[] = []
   airport:Airport = new Airport
-  travel:Travel = new Travel
+  flightSearch:FlightSearch = new FlightSearch
 
   constructor(private service:AirportService, private router: Router) { }
 
@@ -21,6 +21,7 @@ export class HomePageComponent implements OnInit {
   }
   
   goToPage(pageName:string){
+    console.log(this.flightSearch)
     this.router.navigate([`${pageName}`]);
   }
 }

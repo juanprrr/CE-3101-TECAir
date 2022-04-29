@@ -12,7 +12,7 @@
         
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="assets/images/promo-01.jpg"  class="img-fluid d-block rounded mx-auto"  alt="First slide">
+            <img src="assets/images/promo-01.jpg" class="img-fluid d-block rounded mx-auto" alt="First slide">
             </div>
             <div class="carousel-item">
             <img src="assets/images/promo-02.jpg" class="img-fluid d-block rounded mx-auto" alt="Second slide">
@@ -50,12 +50,12 @@
             </div>
             <div class="form-group d-sm-flex border-bottom">
                 <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 position-relative">
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="travel.id_origin" [ngModelOptions]="{standalone: true}" placeholder="Seleccione origen">
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="flightSearch.origin" [ngModelOptions]="{standalone: true}" placeholder="Seleccione origen">
                         <option *ngFor="let opt of airportsList" value={{opt.id}}>{{opt.country}}</option>
                     </select>
                 </div>
                 <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 position-relative">
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="travel.id_origin" [ngModelOptions]="{standalone: true}" placeholder="Seleccione origen">
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="flightSearch.destination" [ngModelOptions]="{standalone: true}" placeholder="Seleccione origen">
                         <option *ngFor="let opt of airportsList" value={{opt.id}}>{{opt.country}}</option>
                     </select>
                     <span class="fas fa-dot-circle text-muted"></span>
@@ -69,12 +69,12 @@
             <div class="form-group d-sm-flex border-bottom" style="margin-top:7px">
                 <p style="margin-right:10px">del</p>
                 <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 position-relative" style="margin-right:10px"> 
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" [(ngModel)]="flightSearch.departure_time1" [ngModelOptions]="{standalone: true}">
                     <div class="label"></div>
                 </div>
                 <p style="margin-right:10px">hasta</p>
                 <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 position-relative" style="margin-right:10px"> 
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" [(ngModel)]="flightSearch.departure_time2" [ngModelOptions]="{standalone: true}">
                     <div class="label"></div>
                 </div>
             </div>
@@ -84,11 +84,11 @@
             <div class=" form-group border-bottom d-flex align-items-center position-relative" style="margin-top:10px">
                 <p style="margin-right:10px">desde</p>
                 <div class="form-group col-md-4 col-sm-12" style="margin-right:10px">
-                    <input type="number" required placeholder="dolares" class="form-control">
+                    <input type="number" required placeholder="dolares" class="form-control" [(ngModel)]="flightSearch.cost1" [ngModelOptions]="{standalone: true}">
                 </div>
                 <p style="margin-right:10px">hasta</p>
                 <div class="form-group col-md-4 col-sm-12">
-                    <input type="number" required placeholder="dolares" class="form-control">
+                    <input type="number" required placeholder="dolares" class="form-control" [(ngModel)]="flightSearch.cost2" [ngModelOptions]="{standalone: true}">
                 </div>
                 <div class="label" id="psngr"></div> <span class="fas fa-users text-muted"></span>
             </div>
