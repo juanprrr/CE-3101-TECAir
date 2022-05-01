@@ -11,7 +11,7 @@
             <th scope="col">Selección</th>
           </tr>
         </thead>
-            <tbody>
+            <tbody *ngFor='let rot of routesList'>
                 <tr>
                     <th scope="row">1</th>
                     <td>11:20 am</td>
@@ -22,25 +22,12 @@
                         <input type="radio" name="radio"><span class="checkmark"></span> 
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>11:20 am</td>
-                    <td>11:00 pm</td>
-                    <td>0</td>
-                    <td>100 000</td>
-                    <td>
-                        <input type="radio" name="radio"><span class="checkmark"></span> 
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>11:20 am</td>
-                    <td>11:00 pm</td>
-                    <td>3</td>
-                    <td>100 000</td>
-                    <td>
-                        <input type="radio" name="radio"><span class="checkmark"></span> 
-                    </td>
+                <tr *ngFor='let flt of flightsList;let i = index'>
+                    <th scope="row" *ngIf='flt.id_ruta == rot.id'>{{flt.id}}</th>
+                    <td *ngIf='flt.id_ruta == rot.id'>{{rot.name}}</td>
+                    <td *ngIf='flt.id_ruta == rot.id'>{{flt.id_airplane}}</td>
+                    <td *ngIf='flt.id_ruta == rot.id'>{{flt.status}}</td>
+                    <td *ngIf='flt.id_ruta == rot.id'>
                 </tr>
             </tbody>
         </table>

@@ -12,7 +12,7 @@
         
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="assets/images/promo-01.jpg"  class="img-fluid d-block rounded mx-auto"  alt="First slide">
+            <img src="assets/images/promo-01.jpg" class="img-fluid d-block rounded mx-auto" alt="First slide">
             </div>
             <div class="carousel-item">
             <img src="assets/images/promo-02.jpg" class="img-fluid d-block rounded mx-auto" alt="Second slide">
@@ -40,57 +40,64 @@
                     <input type="radio" name="radio">Solo ida <span class="checkmark"></span> 
                 </label>
             </div>
-
-            <div class="form-group d-sm-flex margin">
-                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Seleccione origen</option>
-                        <option value="1">San Jose</option>
-                        <option value="2">Liberia</option>
-                        
-                        </select>
-                    <div class="label" id="Origen">
-                    </div> 
+            <div class="form-group d-sm-flex margin-top:10px align-items-center">
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 margin-top position-relative">
+                    <p>Seleccione origen</p>
+                </div>
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 margin-top position-relative">
+                    <p>Seleccione destino</p>
+                </div>
+            </div>
+            <div class="form-group d-sm-flex border-bottom">
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 position-relative">
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="flightSearch.origin" [ngModelOptions]="{standalone: true}" placeholder="Seleccione origen">
+                        <option *ngFor="let opt of airportsList" value={{opt.id}}>{{opt.country}}</option>
+                    </select>
+                </div>
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 position-relative">
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" [(ngModel)]="flightSearch.destination" [ngModelOptions]="{standalone: true}" placeholder="Seleccione origen">
+                        <option *ngFor="let opt of airportsList" value={{opt.id}}>{{opt.country}}</option>
+                    </select>
                     <span class="fas fa-dot-circle text-muted"></span>
                 </div>
-
-                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> 
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Seleccione Destino</option>
-                        <option value="1">El Cairo</option>
-                        <option value="2">Nueva York</option>
-                        <option value="3">Cancún</option>
-                        <option value="4">Brasilia</option>
-                        <option value="5">Monte Video</option>
-                        <option value="6">Estolcomo</option>
-                        <option value="7">Berlín</option>
-                        <option value="8">Kyev</option>
-                        <option value="9">Buenos Aires</option>
-                        
-                        </select>
-                    <div class="label" id="Destino"></div> <span class="fas fa-map-marker text-muted"></span>
-                    </div>
+            </div>
+            <div class="form-group d-sm-flex margin-top:10px align-items-center">
+                <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 margin-top position-relative">
+                    <p>Fecha de salida</p>
                 </div>
-                <div class="form-group d-sm-flex margin">
-                    <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative"> 
-                        <input type="date" required placeholder="Fecha de salida" class="form-control">
-                        <div class="label" id="depart"></div>
-                    </div>
-                    <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> 
-                        <input type="date" required placeholder="Fecha de regreso" class="form-control">
-                        <div class="label" id="return"></div>
-                    </div>
+            </div>
+            <div class="form-group d-sm-flex border-bottom" style="margin-top:7px">
+                <p style="margin-right:10px">del</p>
+                <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 position-relative" style="margin-right:10px"> 
+                    <input type="date" class="form-control" [(ngModel)]="flightSearch.departure_time1" [ngModelOptions]="{standalone: true}">
+                    <div class="label"></div>
                 </div>
-                
-                <div class="form-group border-bottom d-flex align-items-center position-relative"> <input type="number" required placeholder="Cantidad de pasajeros" class="form-control">
-                    <div class="label" id="psngr"></div> <span class="fas fa-users text-muted"></span>
+                <p style="margin-right:10px">hasta</p>
+                <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 position-relative" style="margin-right:10px"> 
+                    <input type="date" class="form-control" [(ngModel)]="flightSearch.departure_time2" [ngModelOptions]="{standalone: true}">
+                    <div class="label"></div>
                 </div>
-                <div class="form-group my-3">
-                    <button  class="btn btn-success rounded-2 justify-content-center text-center p-3"
-                                    (click)="goToPage('reservation')" type="submit">
-                        Buscar Vuelos
-                    </button>
+            </div>
+            <div>
+                <p>Precio:</p>
+            </div>
+            <div class=" form-group border-bottom d-flex align-items-center position-relative" style="margin-top:10px">
+                <p style="margin-right:10px">desde</p>
+                <div class="form-group col-md-4 col-sm-12" style="margin-right:10px">
+                    <input type="number" required placeholder="dolares" class="form-control" [(ngModel)]="flightSearch.cost1" [ngModelOptions]="{standalone: true}">
                 </div>
+                <p style="margin-right:10px">hasta</p>
+                <div class="form-group col-md-4 col-sm-12">
+                    <input type="number" required placeholder="dolares" class="form-control" [(ngModel)]="flightSearch.cost2" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="label" id="psngr"></div> <span class="fas fa-users text-muted"></span>
+            </div>
+            <div class="form-group my-3">
+                <button  class="btn btn-success rounded-2 justify-content-center text-center p-3"
+                                (click)="goToPage('reservation')" type="submit">
+                    Buscar Vuelos
+                </button>
+            </div>
         </form>
     </div>
 </main>
