@@ -27,9 +27,9 @@ export class HomePageComponent implements OnInit {
     this.getAirport();
       
   }
-  goToPage(pageName:string){
+  goToPage(pageName:string, newFlightRequest: FlightRequest){
     
-    this.router.navigate([`${pageName}`]);
+    this.router.navigate([`${pageName}`, JSON.stringify(newFlightRequest)]);
   }
   
   getAirport() {
@@ -45,7 +45,6 @@ export class HomePageComponent implements OnInit {
     var i:number; 
     var top = this.airportList.length-1;
     for (i = top; i >= 0 ; i--){
-      
       if(this.airportList[i].country == "Costa Rica") {
         this.originList.push(this.airportList[i]);
       }

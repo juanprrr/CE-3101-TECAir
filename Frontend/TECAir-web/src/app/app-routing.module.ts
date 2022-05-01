@@ -23,7 +23,7 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'reservation',
+    path: 'reservation/:newFlightRequest',
     component: ReservationComponent
   },
   {
