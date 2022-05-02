@@ -16,7 +16,7 @@ export class UserService {
   }
   //GetUserbyId
   getUserbyId(Id:number):Observable<User>{
-    let params = new HttpParams().set('Id', Id)
+    let params = new HttpParams().set('id', Id)
     return this.httpclient.get<User>(this.url, {params:params})
   }
   //PostUser
@@ -25,11 +25,11 @@ export class UserService {
   }
   //UpdateUser
   updateUser(user:User):Observable<any>{
-    return this.httpclient.put(this.url, user)
+    return this.httpclient.put(this.url + "/" + user.id, user,  this.generateHeaders())
   }
   //DeleteUser
   deleteUser(Id:number):Observable<any>{
-    return this.httpclient.delete(this.url + Id)
+    return this.httpclient.delete(this.url + "/" +  Id, this.generateHeaders())
   }
   private generateHeaders = () => {
     return {
