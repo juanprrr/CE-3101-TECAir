@@ -23,7 +23,7 @@ const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'reservation',
+    path: 'reservation/:newFlightRequest',
     component: ReservationComponent
   },
   {
@@ -32,6 +32,10 @@ const routes: Routes = [
   },
   {
     path: 'flight_mngmnt', 
+    component: FlightMngmtComponent
+  },
+  {
+    path: 'flight_mngmnt/redirect', 
     component: FlightMngmtComponent
   },
   {

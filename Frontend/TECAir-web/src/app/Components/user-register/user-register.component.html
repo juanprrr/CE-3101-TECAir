@@ -1,67 +1,120 @@
-<div class="container-fluid vh-100" style="margin-top:100px">
-    <div class="" style="margin-top:100px">
-        <div class="rounded d-flex justify-content-center">
-            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-dark">
-                <div class="text-center">
-                    <h3 class="text-primary">Registrar cliente</h3>
-                </div>
-                <form action="">
-                    <div class="p-4">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-person-plus-fill text-white"></i></span>
-                            <input type="name" [(ngModel)]="newUser.Name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-person-plus-fill text-white"></i></span>
-                            <input type="name" [(ngModel)]="newUser.First_lastname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Primer Apellido">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-person-plus-fill text-white"></i></span>
-                            <input type="name" [(ngModel)]="newUser.Second_lastname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Segundo Apellido">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-person-badge-fill text-white"></i></span>
-                            <input type="email" [(ngModel)]="newUser.Email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Correo">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-card-heading text-white"></i></span>
-                            <input type="number" [(ngModel)]="newUser.Id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de cédula">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-key-fill text-white"></i></span>
-                            <input type="password" [(ngModel)]="newUser.Password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Contraseña">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-telephone-fill text-white"></i></span>
-                            <input type="number" [(ngModel)]="newUser.Phone" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Teléfono">
-                        </div>
-                        <p>¿Está en la universidad?</p>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-bank text-white"></i></span>
-                            <input type="number" [(ngModel)]="newUser.Id_university" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de universidad">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text bg-primary"><i
-                                    class="bi bi-card-heading text-white"></i></span>
-                            <input type="number" [(ngModel)]="newUser.Student_id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de carné">
-                        </div>
-                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="addUser(newUser)">
-                            Registrar
-                        </button>
-                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="goToPage('/')">
-                            Salir
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+<div class="row g-3 shadow-lg p-5 bg-dark" style="margin-top:10px">
+    <h5>Registro de Cliente</h5>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+                class="bi bi-person-plus-fill text-white"></i>  Ingrese nombre de cliente</span>
+        <input type="name" [(ngModel)]="newUser.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre">
     </div>
+
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-person-plus-fill text-white"></i>  Ingrese 1er apellido de cliente</span>
+        <input type="name" [(ngModel)]="newUser.first_lastname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Primer Apellido">
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-person-plus-fill text-white"></i>  Ingrese 2do apellido de cliente</span>
+        <input type="name" [(ngModel)]="newUser.second_lastname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Segundo Apellido">
+    </div>
+    <div class="col-md-4 col-sm-12">
+            <span class="input-group-text bg-primary"><i
+                class="bi bi-person-badge-fill text-white"></i> Ingrese e-mail de cliente</span>
+        <input type="email" [(ngModel)]="newUser.email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Correo">
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+            <span class="input-group-text bg-primary"><i
+                class="bi bi-card-heading text-white"></i>  Ingrese cedula de cliente</span>
+            <input type="number" [(ngModel)]="newUser.id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de cédula">
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+            <span class="input-group-text bg-primary"><i
+                class="bi bi-key-fill text-white"></i>  Ingrese nueva contraseña de cliente</span>
+            <input type="password" [(ngModel)]="newUser.password" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Contraseña">
+    </div>
+    
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-telephone-fill text-white"></i>    Ingrese teléfono de cliente</span>
+        <input type="number" [(ngModel)]="newUser.phone" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Teléfono">
+    </div>
+    <p>¿Está en la universidad?</p>
+
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-bank text-white"></i>  Ingrese universidad de cliente</span>
+            <select [(ngModel)]="newUser.id_university" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre de universidad">
+                <option *ngFor="let opt of universitiesList" value={{opt.id}}>{{opt.name}}</option>
+            </select> 
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+                class="bi bi-card-heading text-white"></i>  Ingrese carné de cliente</span>
+        <input type="number" [(ngModel)]="newUser.student_id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de carné">
+    </div>
+    <div class="col-md-4 ">
+        <button class="btn btn-success text-center mt-2" type="submit" (click)="addUser(newUser)">
+            Registrar
+        </button>
+        <button class="btn btn-warning text-center mt-2" type="submit" (click)="goToPage('home_page')">
+            Ir a principal
+        </button>
+    </div>
+
+    <h5>Lista de clientes</h5>
+    <table class="table table-responsive justify-content-between bg-white">
+        <thead>
+          <tr>
+            <th scope="col">Cédula</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Email</th>
+            <th scope="col">Carné</th>
+            <th scope="col">Universidad</th>
+          </tr>
+        </thead>
+            <tbody *ngFor='let user of usersList'>
+                <tr *ngFor='let uni of universitiesList; let i = index'>
+                    <th scope="row">{{user.id}}</th>
+                    <td >{{user.getFullName()}}</td>
+                    <td >{{user.phone}}</td>
+                    <td >{{user.email}}</td>
+                    <td >{{user.student_id}}</td>
+                    <td *ngIf = 'uni.id==user.id_university'>{{uni.name}}</td>
+                    
+                </tr>
+            </tbody>
+    </table>
+
+    <h5>Actualizar nombre del cliente</h5>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-card-heading text-white"></i>  Ingrese cedula de cliente</span>
+        <input type="number" [(ngModel)]="updateUser.id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de cédula">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+                class="bi bi-person-plus-fill text-white"></i>  Ingrese nombre de cliente</span>
+        <input type="name" [(ngModel)]="updateUser.name" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Nombre">
+    </div >
+    <div class="col-md-4">
+        <button class="btn btn-success text-center mt-2" type="submit" (click)="updateUserName(updateUser)">
+            Actualizar nombre
+        </button>
+    </div >
+    <h5>Retirar cliente de la base de datos</h5>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-card-heading text-white"></i>  Ingrese cedula de cliente</span>
+        <input type="number" [(ngModel)]="updateUser.id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de cédula">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-warning text-center mt-2" type="submit" (click)="deleteUser(updateUser)">
+            Eliminar cliente
+        </button>
+    </div >
+    
+
 </div>
