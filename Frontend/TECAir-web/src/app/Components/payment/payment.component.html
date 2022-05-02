@@ -41,8 +41,8 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <label>Propietario de Tarjeta</label>
-                                    <input type="text" class="form-control" placeholder="Propietario de Tarjeta" />
+                                    <label>Cedula de Propietario</label>
+                                    <input type="number" class="form-control" [(ngModel)]="reservation.id_user" [ngModelOptions]="{standalone: true}" placeholder="Propietario de Tarjeta" />
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-xs-12">
-                            <button class="btn btn-warning btn-lg btn-block">Procesar pago</button>
+                            <button class="btn btn-warning btn-lg btn-block" (click)="buyFlight(reservation, flight.id, reservationsList.length)">Procesar pago</button>
                         </div>
                     </div>
                 </div>

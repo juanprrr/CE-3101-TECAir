@@ -20,5 +20,9 @@ namespace TecAir.API.Services
         public DbSet<TravelDto> Travel { get; set; }
         public DbSet<UniversityDto> University { get; set; }
         public DbSet<UserDto> User { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TravelDto>().HasKey(c => new { c.Id_route, c.Number });
+        }
     }
 }

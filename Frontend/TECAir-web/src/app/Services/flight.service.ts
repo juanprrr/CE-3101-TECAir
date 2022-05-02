@@ -1,12 +1,13 @@
 import { Flight } from './../Models/flight';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlightService {
+  @Output() flightTrigger: EventEmitter<any> = new EventEmitter();
 
   url = "/api/Flight/";
   constructor(private httpclient:HttpClient) { console.log('Flight Service') }

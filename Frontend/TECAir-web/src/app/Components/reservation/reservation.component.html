@@ -6,31 +6,46 @@
             <th scope="col"># Vuelo</th>
             <th scope="col">Hora de salida</th>
             <th scope="col">Hora de llegada</th>
-            <th scope="col">Paradas</th>
-            <th scope="col">Precio (Colones)</th>
-            <th scope="col">Selección</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Origen</th>
+            <th scope="col">Precio (dolares)</th>
+            <th scope="col"></th>
           </tr>
         </thead>
-            <tbody *ngFor='let rot of routesList'>
+            <tbody *ngFor='let flt of flightsList;let i = index'>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>11:20 am</td>
-                    <td>11:00 pm</td>
-                    <td>1</td>
-                    <td>100 000</td>
+                <ng-container *ngFor='let trv of travelsList;let i = index'>
+                <ng-container *ngIf='flt.id_ruta == trv.id_route'>
+                <ng-container *ngIf='trv.number == 1'>
+                <ng-container *ngFor='let air of airportsList;let i = index'>
+                <ng-container *ngIf='trv.id_origin == air.id'>
+                    <th scope="row">{{flt.id}}</th>
+                    <td>{{trv.departure_time}}</td>
+                    <ng-container *ngFor='let trv2 of travelsList;let i = index'>
+                    <ng-container *ngIf='flt.id_ruta == trv2.id_route'>
+                    <ng-container *ngIf='trv2.number == 2'>
+                    <ng-container *ngFor='let air2 of airportsList;let i = index'>
+                    <ng-container *ngIf='trv2.id_destination == air2.id'>
+                        <td>{{trv2.arrival_time}}</td>
+                        <td>{{air2.country}}, {{air2.city}}</td>
+                    </ng-container>
+                    </ng-container>
+                    </ng-container>
+                    </ng-container>
+                    </ng-container>
+                    <td>{{air.country}}, {{air.city}}</td>
+                    <td>{{flt.cost}}</td>
                     <td>
-                        <input type="radio" name="radio"><span class="checkmark"></span> 
+                        <button class="btn btn-primary text-center mt-2" type="submit" (click)="buyFlight(flt)">Reservar</button>
                     </td>
-                </tr>
-                <tr *ngFor='let flt of flightsList;let i = index'>
-                    <th scope="row" *ngIf='flt.id_ruta == rot.id'>{{flt.id}}</th>
-                    <td *ngIf='flt.id_ruta == rot.id'>{{rot.name}}</td>
-                    <td *ngIf='flt.id_ruta == rot.id'>{{flt.id_airplane}}</td>
-                    <td *ngIf='flt.id_ruta == rot.id'>{{flt.status}}</td>
-                    <td *ngIf='flt.id_ruta == rot.id'>
+                </ng-container>
+                </ng-container>
+                </ng-container>
+                </ng-container>
+                </ng-container>
                 </tr>
             </tbody>
-        </table>
+    </table>
         <div class="d-grid gap-2 d-md-flex rounded-1">
             <button (click)="goToPage('payment')" class="btn btn-primary me-md-2 justify-content-md-end" type="button">Confirmar reservación</button>
             <button (click)="goToPage('home_page')" class="btn btn-warning justify-content-left" type="button">Regresar</button>

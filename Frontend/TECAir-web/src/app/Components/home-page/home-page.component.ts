@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Airport } from 'src/app/Models/airport';
 import { AirportService } from 'src/app/Services/airport.service';
 import { FlightSearch } from 'src/app/Models/flight-search';
+import { FlightSearchService } from 'src/app/Services/flight-search.service';
 
 @Component({
   selector: 'app-home-page',
@@ -14,14 +15,16 @@ export class HomePageComponent implements OnInit {
   airport:Airport = new Airport
   flightSearch:FlightSearch = new FlightSearch
 
-  constructor(private service:AirportService, private router: Router) { }
+  constructor(private service:AirportService, private serviceFlightSearch:FlightSearchService, private router: Router) { }
 
   ngOnInit(): void {
     this.service.getAirport().subscribe((data:any)=>{this.airportsList = data})
   }
   
   goToPage(pageName:string){
-    console.log(this.flightSearch)
     this.router.navigate([`${pageName}`]);
+    this.serviceFlightSearch.flightSearchTrigger.emit({
+      data:this.flightSearch
+    })
   }
 }

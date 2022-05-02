@@ -10,7 +10,6 @@ export class TravelService {
   url = '/api/Travel';
   constructor(private httpclient:HttpClient) { console.log('Travel Service') }
 
-  
   //GetUsers
   getTravels():Observable<any>{
     return this.httpclient.get(this.url)
