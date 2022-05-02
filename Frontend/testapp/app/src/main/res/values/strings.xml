@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">TestApp</string>
+    <string name="app_name">TecAir</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
     <string name="login_register">Register</string>
@@ -22,6 +22,19 @@
     <string name="error_message_password">Enter Password</string>
     <string name="success_message">Registration Successful</string>
     <string name="error_email_exists">Email Already Exists</string>
+    <string name="hint_date">dd/mm/aaaa</string>
+    <string name="hint_numpass">Numero de pasajeros</string>
+    <string name="text_promos">Promociones</string>
+    <string name="text_flights">Vuelos</string>
+    <string name="hint_codigo">Codigo</string>
+    <string name="hint_descuento">Descuento</string>
+    <string name="hint_vencimiento">Vencimiento</string>
+    <string name="hint_id">ID</string>
+    <string name="hint_estado">Estado</string>
+    <string name="hint_costo">Costo</string>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

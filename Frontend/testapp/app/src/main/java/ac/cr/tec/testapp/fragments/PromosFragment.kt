@@ -1,60 +1,82 @@
 package ac.cr.tec.testapp.fragments
 
+import ac.cr.tec.testapp.DBContract
+import ac.cr.tec.testapp.DatabaseHelper
+import ac.cr.tec.testapp.R
+import ac.cr.tec.testapp.adapters.PromosRecyclerAdapter
+import ac.cr.tec.testapp.models.Promocion
+import android.os.AsyncTask
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ac.cr.tec.testapp.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_promos.view.*
+import kotlinx.android.synthetic.main.item_promo_recycler.*
+import kotlinx.android.synthetic.main.item_promo_recycler.view.*
 
 /**
  * A simple [Fragment] subclass.
- * Use the [PromosFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class PromosFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    //private val activity = this@PromosFragment
+    private lateinit var viewOfLayout: View
+    private lateinit var textViewCodigo: AppCompatTextView
+    private lateinit var recyclerViewUsers: RecyclerView
+    private lateinit var listaPromos: MutableList<Promocion>
+    private lateinit var usersRecyclerAdapter: PromosRecyclerAdapter
+    private lateinit var databaseHelper: DatabaseHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_promos, container, false)
+        viewOfLayout = inflater.inflate(R.layout.fragment_promos, container, false)
+
+        databaseHelper = DatabaseHelper(requireActivity())
+        recyclerViewUsers = viewOfLayout.findViewById(R.id.recyclerViewUsers)
+        recyclerViewUsers.layoutManager = LinearLayoutManager(context)
+        listaPromos = mutableListOf<Promocion>() // se inicializa la lista
+
+/*
+        val promo1 = Promocion(123, 10,"10 Abril")
+        databaseHelper.addPromo(promo1)
+        val promo2 = Promocion(321, 50,"16 Marzo")
+        databaseHelper.addPromo(promo2)
+*/
+        consultarPromos()
+
+        usersRecyclerAdapter = PromosRecyclerAdapter(listaPromos)
+        recyclerViewUsers.adapter = usersRecyclerAdapter
+
+
+
+
+
+
+
+        return viewOfLayout
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PromosFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PromosFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun consultarPromos() {
+
+
+        val db = databaseHelper.readableDatabase
+        val cursor = db.rawQuery("select * from " + DBContract.PromocionEntry.TABLE_NAME, null)
+
+        while (cursor.moveToNext()){
+            var promo = Promocion(cursor.getInt(0), cursor.getInt(1), cursor.getString(2))
+
+            listaPromos.add(promo)
+        }
     }
+
+
 }

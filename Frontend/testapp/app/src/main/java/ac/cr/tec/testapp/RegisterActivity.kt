@@ -39,18 +39,18 @@ class RegisterActivity: AppCompatActivity() {
         val lname1 = findViewById<EditText>(R.id.textInputEditTextLName1).text.toString()
         val lname2 = findViewById<EditText>(R.id.textInputEditTextLName2).text.toString()
         val tipo = findViewById<EditText>(R.id.textInputEditTextTipo).text.toString()
-        val tel = findViewById<EditText>(R.id.textInputEditTextPN).text.toString()
+        val tel = findViewById<EditText>(R.id.textInputEditTextPN).text.toString().toInt()
         val email = findViewById<EditText>(R.id.textInputEditTextEmail).text.toString()
         val password = findViewById<EditText>(R.id.textInputEditTextPassword).text.toString()
-        val cedula = findViewById<EditText>(R.id.textInputEditTextCedula).text.toString()
+        val cedula = findViewById<EditText>(R.id.textInputEditTextCedula).text.toString().toInt()
         //
         if (!databaseHelper!!.checkUser(email.trim())) {
             var user = User(nombre = fname.trim(),
                 apellidouno = lname1.trim(),
                 apellidodos = lname2.trim(),
-                cedula = cedula.trim(),
+                cedula = cedula,
                 tipo = tipo.trim(),
-                tel = tel.trim(),
+                tel = tel,
                 correo = email.trim(),
                 password = password.trim(),
 

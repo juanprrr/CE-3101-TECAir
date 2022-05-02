@@ -35,7 +35,7 @@
                     android:layout_weight="1"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
@@ -46,7 +46,7 @@
                     android:layout_weight="1"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -71,7 +71,7 @@
                     android:layout_weight="1"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <EditText
@@ -82,7 +82,7 @@
                     android:layout_weight="1"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>

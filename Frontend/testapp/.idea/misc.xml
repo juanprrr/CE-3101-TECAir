@@ -4,11 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/drawable/ic_baseline_airplane.xml" value="0.1445" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_flightsres.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_home.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_flights.xml" value="0.1" />
-        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_promos.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_flights.xml" value="0.2" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_promos.xml" value="0.264" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/fragment_promos1.xml" value="0.1" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/item_flight_recycler.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/item_promo_recycler.xml" value="0.264" />
         <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/layout/register_activity.xml" value="0.1" />
         <entry key="..\:/Users/Ignacio/Documents/GitHub/CE-3101-TECAir/Frontend/testapp/app/src/main/res/menu/nav_menu.xml" value="0.1" />
         <entry key="..\:/Users/Ignacio/Documents/TEC/2022S1/Bses/testapp/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
