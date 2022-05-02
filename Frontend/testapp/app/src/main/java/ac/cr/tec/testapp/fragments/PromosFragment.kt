@@ -21,7 +21,8 @@ import kotlinx.android.synthetic.main.item_promo_recycler.*
 import kotlinx.android.synthetic.main.item_promo_recycler.view.*
 
 /**
- * A simple [Fragment] subclass.
+ * Fragmento de actividad home la cual se encarga de mostrar las
+ * promociones disponibles.
  */
 class PromosFragment : Fragment() {
 
@@ -45,28 +46,26 @@ class PromosFragment : Fragment() {
         recyclerViewUsers.layoutManager = LinearLayoutManager(context)
         listaPromos = mutableListOf<Promocion>() // se inicializa la lista
 
-/*
+
+        // se ingresan promociones en la base de datos local
         val promo1 = Promocion(123, 10,"10 Abril")
         databaseHelper.addPromo(promo1)
         val promo2 = Promocion(321, 50,"16 Marzo")
         databaseHelper.addPromo(promo2)
-*/
+
         consultarPromos()
 
         usersRecyclerAdapter = PromosRecyclerAdapter(listaPromos)
         recyclerViewUsers.adapter = usersRecyclerAdapter
 
-
-
-
-
-
-
         return viewOfLayout
     }
 
     private fun consultarPromos() {
-
+        /**
+         * Esta función se encarga de conseguir todas las promociones asociados a TecAir
+         * y guardarlas en la lista listaPromos.
+         */
 
         val db = databaseHelper.readableDatabase
         val cursor = db.rawQuery("select * from " + DBContract.PromocionEntry.TABLE_NAME, null)

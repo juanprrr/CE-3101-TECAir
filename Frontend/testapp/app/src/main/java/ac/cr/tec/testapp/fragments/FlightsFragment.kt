@@ -14,7 +14,8 @@ import android.widget.*
 
 
 /**
- * A simple [Fragment] subclass.
+ * Fragmento de actividad home la cual se encarga de mostrar espacios de búsqueda de
+ * vuelos.
  */
 class FlightsFragment : Fragment() {
     private lateinit var viewOfLayout: View
@@ -30,6 +31,7 @@ class FlightsFragment : Fragment() {
         databaseHelper = DatabaseHelper(requireActivity())
         airports = mutableListOf<String>()
 
+        // se ingresan aeropuertos en la base de datos local
         val ap1 = Aeropuerto(3564, "AeroJachudo","Buenos Aires", "Argentina")
         databaseHelper.addAP(ap1)
         val ap2 = Aeropuerto(4985, "PaloRalo","Sydney", "Australia")
@@ -70,6 +72,10 @@ class FlightsFragment : Fragment() {
     }
 
     private fun consultarAP() {
+        /**
+         * Esta función se encarga de conseguir todos los aeropuertos asociados a TecAir
+         * y guardar las ubicaciones en la lista Airports
+         */
 
 
         val db = databaseHelper.readableDatabase

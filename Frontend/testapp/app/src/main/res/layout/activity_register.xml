@@ -101,7 +101,7 @@
                 android:hint="@string/hint_phone"
                 android:inputType="phone"
                 android:maxLines="1"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,7 +118,7 @@
                 android:hint="@string/hint_email"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -134,7 +134,7 @@
                 android:hint="@string/hint_cedula"
                 android:inputType="numberDecimal"
                 android:maxLines="1"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -150,7 +150,7 @@
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 

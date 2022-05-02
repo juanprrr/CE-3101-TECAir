@@ -13,7 +13,10 @@ import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 
 // sirve como api
-
+/**
+ * DatabaseHelper se encarga de la creación de la base de datos local
+ * y sirve como API.
+ */
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
 
     companion object {
@@ -120,7 +123,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
 
     override fun onCreate(db: SQLiteDatabase) {
-        // create the database
+        /**
+         * se crean las tablas en la base de datos
+         */
         db.execSQL(SQL_CREATE_USERTABLE)
         db.execSQL(SQL_CREATE_VUELOTABLE)
         db.execSQL(SQL_CREATE_RUTATABLE)
@@ -144,25 +149,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         super.onDowngrade(db, oldVersion, newVersion)
     }
 
-    @Throws(SQLiteConstraintException::class)
-    fun insertData(nombre: String, apellidouno: String, apellidodos: String): Long {
-        // Gets the data repository in write mode
-        val db = writableDatabase
-
-        // Create a new map of values, where column names are the keys
-        val insertvalues = ContentValues()
-        insertvalues.put(DBContract.UserEntry.COLUMN_NOMBRE, nombre)
-        insertvalues.put(DBContract.UserEntry.COLUMN_APELLIDO1, apellidouno)
-        insertvalues.put(DBContract.UserEntry.COLUMN_APELLIDO2, apellidodos)
-
-        // Insert the new row, returning the primary key value of the new row
-        val action = db.insert(DBContract.UserEntry.TABLE_NAME, null, insertvalues)
-        db.close() //close database connection
-        return action
-    }
 
     /**
-     * This method is to create user record
+     * Este metodo es para agregar usuario a base de datos
      *
      * @param user
      */
@@ -179,9 +168,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         insertvalues.put(DBContract.UserEntry.COLUMN_TIPO, user.tipo)
         // Inserting Row
         db.insert(USERTABLE_NAME, null, insertvalues)
-        db.close()
+        db.close() // cierra conexion con base de datos
     }
 
+    /**
+     * Este metodo es para agregar promocion a base de datos
+     */
     fun addPromo(promo: Promocion) {
         val db = this.writableDatabase
         val insertvalues = ContentValues()
@@ -193,6 +185,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
     }
 
+    /**
+     * Este metodo es para agregar aeropuerto a base de datos
+     */
     fun addAP(ap: Aeropuerto) {
         val db = this.writableDatabase
         val insertvalues = ContentValues()
@@ -206,7 +201,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
 
-
+    /**
+     * Metodo para eliminar usuario según cedula especificada
+     */
     @Throws(SQLiteConstraintException::class)
     fun deleteData(id: String): Int {
         // Gets the data repository in write mode
@@ -221,31 +218,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return action
     }
 
-    @SuppressLint("Range")
-    fun getAllPromos(): List<Promocion> {
-        val columns = arrayOf(COLPROMOCOD, COLPROMODESC, COLPROMOVEN)
-
-        val sortOrder = "$COLPROMOCOD ASC"
-        val promoList = ArrayList<Promocion>()
-
-        val db = this.readableDatabase
-
-        val cursor = db.query(DBContract.PromocionEntry.TABLE_NAME, columns,null,null,null,null, sortOrder)
-
-        if(cursor.moveToFirst()){
-            do {
-                val promo = Promocion(codigo = cursor.getString(cursor.getColumnIndex(COLPROMOCOD)).toInt(),
-                    descuento = cursor.getString(cursor.getColumnIndex(COLPROMODESC)).toInt(),
-                    vencimiento = cursor.getString(cursor.getColumnIndex(COLPROMOVEN)))
-
-                promoList.add(promo)
-            } while (cursor.moveToNext())
-        }
-        cursor.close()
-        db.close()
-        return promoList
-    }
-
+    /**
+     * metodo para obtener array de los usuarios en base de datos
+     */
     fun readUsers(): ArrayList<User> {
         val dBdata = ArrayList<User>()
         val db = writableDatabase
@@ -285,6 +260,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return dBdata
     }
 
+    /**
+     * Revisa si existe un usuario con un correo dado
+     */
     fun checkUser(email: String): Boolean {
         // array of columns to fetch
         val columns = arrayOf(COLUSERCORREO)
@@ -312,6 +290,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return false
     }
 
+    /**
+     * Revisa si existe un usuario con un
+     * correo y contraseña dada
+     */
     fun checkUser(email: String, password: String): Boolean {
         // array of columns to fetch
         val columns = arrayOf(COLUSERCEDULA)

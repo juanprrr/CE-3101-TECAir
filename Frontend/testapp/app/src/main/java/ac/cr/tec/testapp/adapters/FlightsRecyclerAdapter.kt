@@ -10,7 +10,11 @@ import ac.cr.tec.testapp.models.Vuelo
 
 
 class FlightsRecyclerAdapter(private val listFlights: List<Vuelo>): RecyclerView.Adapter<FlightsRecyclerAdapter.ViewHolder>() {
-
+    /**
+     * FlightsRecyclerAdapter sirve como puente entre la lista de vuelos y
+     * el Recycler View que mostrará los vuelos resultantes después de aplicar
+     * filtros de búsqueda.
+     */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -29,6 +33,10 @@ class FlightsRecyclerAdapter(private val listFlights: List<Vuelo>): RecyclerView
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        /**
+         * Asocia cada elemento de una lista de Vuelos a una fila del
+         * Recycler View.
+         */
 
         var textViewId: TextView
         var textViewEstado: TextView

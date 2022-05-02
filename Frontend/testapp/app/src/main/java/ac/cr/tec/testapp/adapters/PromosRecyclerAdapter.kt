@@ -13,7 +13,10 @@ import kotlinx.android.synthetic.main.item_promo_recycler.view.*
 
 
 class PromosRecyclerAdapter(private val listPromos: List<Promocion>): RecyclerView.Adapter<PromosRecyclerAdapter.ViewHolder>() {
-
+    /**
+     * PromosRecyclerAdapter sirve como puente entre la lista de promociones y
+     * el Recycler View que mostrará las promociones
+     */
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -32,7 +35,10 @@ class PromosRecyclerAdapter(private val listPromos: List<Promocion>): RecyclerVi
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        /**
+         * Asocia cada elemento de una lista de promociones a una fila del
+         * Recycler View.
+         */
         var textViewCodigo: TextView
         var textViewDescuento: TextView
         var textViewVencimiento: TextView

@@ -8,6 +8,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Clase que maneja lógica en activity_flightsres, donde
+ * se muestran los vuelos filtrados
+ */
 class FlightsresActivity: AppCompatActivity() {
 
     private val activity = this@FlightsresActivity

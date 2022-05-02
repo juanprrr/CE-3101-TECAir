@@ -34,6 +34,10 @@ class RegisterActivity: AppCompatActivity() {
         loginLink.setOnClickListener { finish() }
     }
 
+    /**
+     * se crea el objeto User con la información suministrada
+     * y se llama método addUser del Helper.
+     */
     private fun postDataToSQLite() {
         val fname = findViewById<EditText>(R.id.textInputEditTextFName).text.toString()
         val lname1 = findViewById<EditText>(R.id.textInputEditTextLName1).text.toString()
@@ -66,6 +70,9 @@ class RegisterActivity: AppCompatActivity() {
         }
     }
 
+    /**
+     * Se encarga de limpiar los inputs
+     */
     private fun emptyInputEditText() {
         findViewById<EditText>(R.id.textInputEditTextFName)!!.text = null
         findViewById<EditText>(R.id.textInputEditTextLName1)!!.text = null

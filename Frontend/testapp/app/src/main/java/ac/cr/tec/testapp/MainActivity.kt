@@ -23,16 +23,26 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Dirige hacia actividad Home
+     */
     fun goHome(view: View){
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
 
+    /**
+     * Dirige hacia actividad Register
+     */
     fun goToRegister(view: View){
         val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
 
+    /**
+     * Se encarga de buscar si correo y contraseña coinciden
+     * en la base de datos.
+     */
     fun login(view: View) {
         val email = findViewById<EditText>(R.id.emailInput).text.toString()
         val password = findViewById<EditText>(R.id.passwordInput).text.toString()
@@ -53,7 +63,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    /**
+     * Se encarga de limpiar los inputs
+     */
     private fun emptyInputEditText() {
         findViewById<EditText>(R.id.emailInput)!!.text = null
         findViewById<EditText>(R.id.passwordInput)!!.text = null
