@@ -15,9 +15,11 @@ import { Subscription } from 'rxjs';
 export class HomePageComponent implements OnInit {
   newFlightRequest: FlightRequest = new FlightRequest
   airportList: Airport[] = []
+  airportsList: Airport[] = []
   originList: Airport[] = []
   destinationList: Airport[] = []
   flightRequests: FlightRequest[] = []
+  flightRequest:FlightRequest = new FlightRequest
   //@Output() tableDataValues=new EventEmitter<string>();
 
   constructor(private router: Router, 
@@ -25,6 +27,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAirport();
+    this.airport.getAirport().subscribe((data:any)=>{this.airportsList = data})
       
   }
   goToPage(pageName:string, newFlightRequest: FlightRequest){
