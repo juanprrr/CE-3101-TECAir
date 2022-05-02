@@ -31,7 +31,7 @@ export class FlightService {
   }
   //DeleteFlight
   deleteFlight(Id:number):Observable<any>{
-    return this.httpclient.delete(this.url + Id, this.generateHeaders())
+    return this.httpclient.delete(this.url +Id, this.generateHeaders())
   }
   private generateHeaders = () => {
     return {

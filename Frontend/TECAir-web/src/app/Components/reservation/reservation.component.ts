@@ -1,3 +1,4 @@
+import { SelectFlight } from './../../Models/select-flight';
 import { Travel } from './../../Models/travel';
 import { Flight } from './../../Models/flight';
 import { RouteService } from './../../Services/route.service';
@@ -20,15 +21,16 @@ import { plainToInstance } from 'class-transformer';
 })
 export class ReservationComponent implements OnInit {
   newFlightRequest: FlightRequest = new FlightRequest
+  
   flightList: Flight[] = []
   travelList: Travel[] = []
   optionsList: Travel[] = []
   datetimeAr: any;
   datetimeDep: any;
+  selectionsList: SelectFlight[] =[] 
   
-
   constructor(private router: Router,
-              private flight: FlightService, 
+              private flightS: FlightService, 
               private travelService: TravelService, 
               private routeService: RouteService,
               private activatedRoute : ActivatedRoute ) { 
@@ -37,9 +39,9 @@ export class ReservationComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    console.log("REQUEST" + JSON.stringify(this.newFlightRequest));
+    console.log("NEW FLIGHT REQUEST" + JSON.stringify(this.newFlightRequest));
     this.getTravels()
-    
+    this.getFlights()
 
   }
 
@@ -50,6 +52,16 @@ export class ReservationComponent implements OnInit {
     this.searchFlights();
     console.log("Options found", JSON.stringify(this.optionsList))
 
+  })
+  }
+
+  getFlights(){
+    this.flightS.getFlight().subscribe((flights: Flight[]) =>{
+    console.log("Flights available: ", JSON.stringify(flights));
+    this.flightList = plainToInstance(Flight, flights);
+    this.selectFlightOptions();
+    console.log("selections found: ", JSON.stringify(this.selectionsList));
+ 
   })
   }
   searchFlights(){
@@ -71,6 +83,33 @@ export class ReservationComponent implements OnInit {
 
   }
   
+  selectFlightOptions(){
+    var i: number = 0;
+    var k: number = 0;
+    var top2 = this.flightList.length-1
+    var top = this.optionsList.length-1
+    
+    for(i; i <= top; i++){
+      
+
+      for(k; k<=top2;k++){
+        if(this.optionsList[i].id_route == this.flightList[k].id_ruta){
+          var currentResult: SelectFlight = new SelectFlight
+          this.datetimeAr = this.optionsList[i].arrival_time?.toString().split("T");
+          this.datetimeDep = this.optionsList[i].departure_time?.toString().split("T");
+
+          currentResult.nVuelo = this.flightList[k].id
+          currentResult.pasajeros = this.flightList[k].number_of_passengers
+          currentResult.llegada = this.datetimeAr[1]
+          currentResult.salida = this.datetimeDep[1]
+          currentResult.precio = this.flightList[k].cost
+          this.selectionsList.push(currentResult)
+        }
+      }
+    }
+    console.log("Results from search: ", JSON.stringify(this.selectionsList))
+  }
+
   goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
   }

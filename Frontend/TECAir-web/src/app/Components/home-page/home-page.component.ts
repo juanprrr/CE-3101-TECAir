@@ -19,7 +19,6 @@ export class HomePageComponent implements OnInit {
   originList: Airport[] = []
   destinationList: Airport[] = []
   flightRequests: FlightRequest[] = []
-  flightRequest:FlightRequest = new FlightRequest
   //@Output() tableDataValues=new EventEmitter<string>();
 
   constructor(private router: Router, 

@@ -61,20 +61,20 @@ export class FlightMngmtComponent implements OnInit {
   addRoute(newRoute:Route){
     this.service.insertRoute(newRoute).subscribe(()=>
     {
-      this.router.navigate(['flight_mngmnt/redirect'])
+      window.location.reload()
     }, ()=>alert("No se pudo registrar ruta"))
   }
   addTravel(newTravel:Travel){
     this.travelService.insertTravel(newTravel).subscribe(()=>
     {
-      //this.router.navigate(['/'])
+      window.location.reload()
     }, ()=>alert("No se pudo registrar viaje"))
   }
 
   addFlight(newFlight:Flight){
     this.flight.insertFlight(newFlight).subscribe(()=>
     {
-      this.router.navigate(['flight_mngmnt/redirect'])
+      window.location.reload()
     }, ()=>alert("No se pudo registrar vuelo"))
   }
 
