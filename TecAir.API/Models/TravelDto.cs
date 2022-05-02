@@ -1,12 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TecAir.API.Models
 {
     public class TravelDto
     {
-        [Key]
+        [Key, Column(Order = 1)]
         public int Number { get; set; }
         public string Name { get; set; }
+        [Key, Column(Order = 2)]
         public int Id_route { get; set; }
         public DateTime Departure_time { get; set; }
         public DateTime Arrival_time { get; set; }
