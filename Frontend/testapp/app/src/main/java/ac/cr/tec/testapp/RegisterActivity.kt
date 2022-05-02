@@ -17,7 +17,6 @@ class RegisterActivity: AppCompatActivity() {
     private lateinit var databaseHelper: DatabaseHelper
     private lateinit var nestedScrollView: NestedScrollView
 
-   //private lateinit var inputValidation: InputValidation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

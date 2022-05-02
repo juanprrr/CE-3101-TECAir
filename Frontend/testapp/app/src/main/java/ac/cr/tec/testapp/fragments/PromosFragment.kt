@@ -61,6 +61,7 @@ class PromosFragment : Fragment() {
         return viewOfLayout
     }
 
+
     private fun consultarPromos() {
         /**
          * Esta función se encarga de conseguir todas las promociones asociados a TecAir

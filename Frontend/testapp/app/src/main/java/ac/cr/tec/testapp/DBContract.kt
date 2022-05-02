@@ -26,6 +26,8 @@ object DBContract {
             val COLUMN_ID = "id"
             val COLUMN_ESTADO = "estado"
             val COLUMN_COSTO = "costo"
+            val COLUMN_CANTPASAJEROS = "cantPasajeros"
+            val COLUMN_RUTAASIGN = "rutaAsign"
         }
     }
 
@@ -65,6 +67,8 @@ object DBContract {
 
             val COLUMN_NUMERO = "numero"
             val COLUMN_NOMBRE = "nombre"
+            val COLUMN_ORIGENID = "origenid"
+            val COLUMN_DESTINOID = "destinoid"
         }
     }
 

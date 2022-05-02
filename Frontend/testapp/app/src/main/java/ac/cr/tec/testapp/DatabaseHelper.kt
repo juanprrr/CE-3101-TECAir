@@ -1,8 +1,6 @@
 package ac.cr.tec.testapp
 
-import ac.cr.tec.testapp.models.Aeropuerto
-import ac.cr.tec.testapp.models.Promocion
-import ac.cr.tec.testapp.models.User
+import ac.cr.tec.testapp.models.*
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
@@ -50,12 +48,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val COLVUELOID = DBContract.VueloEntry.COLUMN_ID
         val COLVUELOESTADO = DBContract.VueloEntry.COLUMN_ESTADO
         val COLVUELOCOSTO = DBContract.VueloEntry.COLUMN_COSTO
+        val COLVUELOCANTPASAJEROS = DBContract.VueloEntry.COLUMN_CANTPASAJEROS
+        val COLVUELORUTAASIGN = DBContract.VueloEntry.COLUMN_RUTAASIGN
+
 
         private val SQL_CREATE_VUELOTABLE =
             "CREATE TABLE " + DBContract.VueloEntry.TABLE_NAME + " (" +
                     DBContract.VueloEntry.COLUMN_ID + " TEXT," +
                     DBContract.VueloEntry.COLUMN_ESTADO + " TEXT," +
-                    DBContract.VueloEntry.COLUMN_COSTO + " TEXT)"
+                    DBContract.VueloEntry.COLUMN_COSTO + " INTEGER," +
+                    DBContract.VueloEntry.COLUMN_CANTPASAJEROS + " INTEGER," +
+                    DBContract.VueloEntry.COLUMN_RUTAASIGN + " INTEGER)"
 
         val RUTATABLE_NAME = DBContract.RutaEntry.TABLE_NAME
         val COLRUTAID = DBContract.RutaEntry.COLUMN_ID
@@ -93,11 +96,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val VIAJETABLE_NAME = DBContract.ViajeEntry.TABLE_NAME
         val COLVIAJENUM = DBContract.ViajeEntry.COLUMN_NUMERO
         val COLVIAJENOM = DBContract.ViajeEntry.COLUMN_NOMBRE
+        val COLVIAJEORIGENID = DBContract.ViajeEntry.COLUMN_ORIGENID
+        val COLVIAJEDESTINOID = DBContract.ViajeEntry.COLUMN_DESTINOID
 
         private val SQL_CREATE_VIAJETABLE =
             "CREATE TABLE " + DBContract.ViajeEntry.TABLE_NAME + " (" +
                     DBContract.ViajeEntry.COLUMN_NUMERO + " INTEGER PRIMARY KEY," +
-                    DBContract.ViajeEntry.COLUMN_NOMBRE + " TEXT)"
+                    DBContract.ViajeEntry.COLUMN_NOMBRE + " TEXT," +
+                    DBContract.ViajeEntry.COLUMN_ORIGENID + " INTEGER," +
+                    DBContract.ViajeEntry.COLUMN_DESTINOID + " INTEGER)"
 
         val AEROPTABLE_NAME = DBContract.AeropuertoEntry.TABLE_NAME
         val COLAEROPID = DBContract.AeropuertoEntry.COLUMN_ID
@@ -197,6 +204,50 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         insertvalues.put(DBContract.AeropuertoEntry.COLUMN_PAIS, ap.pais)
         // Inserting Row
         db.insert(AEROPTABLE_NAME, null, insertvalues)
+        db.close()
+    }
+
+    fun addFlight(fl: Vuelo) {
+        /**
+         * Este metodo es para agregar vuelo a base de datos
+         */
+        val db = this.writableDatabase
+        val insertvalues = ContentValues()
+        insertvalues.put(DBContract.VueloEntry.COLUMN_ID, fl.id)
+        insertvalues.put(DBContract.VueloEntry.COLUMN_ESTADO, fl.estado)
+        insertvalues.put(DBContract.VueloEntry.COLUMN_COSTO, fl.costo)
+        insertvalues.put(DBContract.VueloEntry.COLUMN_CANTPASAJEROS, fl.cantPasajeros)
+        insertvalues.put(DBContract.VueloEntry.COLUMN_RUTAASIGN, fl.rutaAsign)
+        // Inserting Row
+        db.insert(VUELOTABLE_NAME, null, insertvalues)
+        db.close()
+    }
+
+    fun addRuta(rt: Ruta) {
+        /**
+         * Este metodo es para agregar ruta a base de datos
+         */
+        val db = this.writableDatabase
+        val insertvalues = ContentValues()
+        insertvalues.put(DBContract.RutaEntry.COLUMN_ID, rt.id)
+        insertvalues.put(DBContract.RutaEntry.COLUMN_NOMBRE, rt.nombre)
+        // Inserting Row
+        db.insert(RUTATABLE_NAME, null, insertvalues)
+        db.close()
+    }
+
+    fun addViaje(vj: Viaje) {
+        /**
+         * Este metodo es para agregar viaje a base de datos
+         */
+        val db = this.writableDatabase
+        val insertvalues = ContentValues()
+        insertvalues.put(DBContract.ViajeEntry.COLUMN_NUMERO, vj.numero)
+        insertvalues.put(DBContract.ViajeEntry.COLUMN_NOMBRE, vj.nombre)
+        insertvalues.put(DBContract.ViajeEntry.COLUMN_ORIGENID, vj.origenid)
+        insertvalues.put(DBContract.ViajeEntry.COLUMN_DESTINOID, vj.destinoid)
+        // Inserting Row
+        db.insert(VIAJETABLE_NAME, null, insertvalues)
         db.close()
     }
 

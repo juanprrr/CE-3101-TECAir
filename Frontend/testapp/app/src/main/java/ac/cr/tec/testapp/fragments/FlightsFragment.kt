@@ -1,16 +1,17 @@
 package ac.cr.tec.testapp.fragments
 
-import ac.cr.tec.testapp.DBContract
-import ac.cr.tec.testapp.DatabaseHelper
+import ac.cr.tec.testapp.*
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ac.cr.tec.testapp.R
 import ac.cr.tec.testapp.models.Aeropuerto
 import ac.cr.tec.testapp.models.Promocion
+import android.content.Intent
+import android.util.Log
 import android.widget.*
+import kotlinx.android.synthetic.main.fragment_flights.*
 
 
 /**
@@ -31,10 +32,11 @@ class FlightsFragment : Fragment() {
         databaseHelper = DatabaseHelper(requireActivity())
         airports = mutableListOf<String>()
 
+
         // se ingresan aeropuertos en la base de datos local
-        val ap1 = Aeropuerto(3564, "AeroJachudo","Buenos Aires", "Argentina")
+        val ap1 = Aeropuerto(3567, "AeroJachudo","Buenos Aires", "Argentina")
         databaseHelper.addAP(ap1)
-        val ap2 = Aeropuerto(4985, "PaloRalo","Sydney", "Australia")
+        val ap2 = Aeropuerto(4955, "PaloRalo","Sydney", "Australia")
         databaseHelper.addAP(ap2)
 
         consultarAP()
@@ -65,11 +67,24 @@ class FlightsFragment : Fragment() {
             }
         }
 
-                    
-
 
         return viewOfLayout
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        /**
+         * Dirige hacia actividad FlightsresActivity donde se muestran resultados de busqueda
+         */
+        buscarVueloButton.setOnClickListener {
+            val intent = Intent(requireContext(), FlightsresActivity::class.java)
+            requireContext().startActivity(intent)
+        }
+
+    }
+
+
 
     private fun consultarAP() {
         /**
