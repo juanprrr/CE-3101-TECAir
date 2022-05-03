@@ -1,3 +1,5 @@
+import { ReservationService } from './../../Services/reservation.service';
+import { Reservation } from './../../Models/reservation';
 import { SelectFlight } from './../../Models/select-flight';
 import { Travel } from './../../Models/travel';
 import { Flight } from './../../Models/flight';
@@ -21,7 +23,7 @@ import { plainToInstance } from 'class-transformer';
 })
 export class ReservationComponent implements OnInit {
   newFlightRequest: FlightRequest = new FlightRequest
-  
+  newReservation: Reservation = new Reservation
   flightList: Flight[] = []
   travelList: Travel[] = []
   optionsList: Travel[] = []
@@ -33,7 +35,8 @@ export class ReservationComponent implements OnInit {
               private flightS: FlightService, 
               private travelService: TravelService, 
               private routeService: RouteService,
-              private activatedRoute : ActivatedRoute ) { 
+              private activatedRoute : ActivatedRoute,
+              private reservationS: ReservationService ) { 
   this.newFlightRequest = JSON.parse(activatedRoute.snapshot.params["newFlightRequest"]);
 
               }
@@ -44,7 +47,7 @@ export class ReservationComponent implements OnInit {
     this.getFlights()
 
   }
-
+  //Se obtienen todos los viajes disponibles
   getTravels(){
     this.travelService.getTravels().subscribe((travels: Travel[]) =>{
     console.log("TRAVELS AVAILABLE: ", JSON.stringify(travels));
@@ -54,7 +57,7 @@ export class ReservationComponent implements OnInit {
 
   })
   }
-
+  //se obtienen todos los vuelos disponibles
   getFlights(){
     this.flightS.getFlight().subscribe((flights: Flight[]) =>{
     console.log("Flights available: ", JSON.stringify(flights));
@@ -82,7 +85,15 @@ export class ReservationComponent implements OnInit {
     }
 
   }
+
+  addReservation(newReservation: Reservation){
+    
+      this.reservationS.insertReservation(newReservation).subscribe(()=>{
+        window.location.reload()
+      },()=>alert("No se pudo registrar su usuario, por favor intente de nuevo!"))
+    }
   
+
   selectFlightOptions(){
     var i: number = 0;
     var k: number = 0;

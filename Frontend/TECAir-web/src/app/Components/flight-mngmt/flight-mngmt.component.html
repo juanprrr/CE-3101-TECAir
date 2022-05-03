@@ -128,6 +128,50 @@
             Registrar vuelo
         </button> 
     </div>
+<!--
+        id:number=0
+    cost: number = 0
+    number_of_passengers : number = 0
+    status: string =  ""
+    id_airplane: string =""
+    id_ruta: number = 0
+    id_promotion: number = 0
+-->
+    <h5>Lista de vuelos</h5>
+    <table class="table table-responsive justify-content-between bg-white">
+        <thead>
+          <tr>
+            <th scope="col">ID vuelo</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Matricula de Avión</th>
+            <th scope="col">ID de ruta</th>
+          
+           
+          </tr>
+        </thead>
+            <tbody *ngFor='let flight of flightList'>
+                <tr >
+                    <th scope="row">{{flight.id}}</th>
+                    <td >{{flight.cost}}</td>
+                    <td >{{flight.id_airplane}}</td>
+                    <td >{{flight.id_ruta}}</td>
+                   
+                </tr>
+            </tbody>
+    </table>
+    <h5>Retirar vuelo de la base de datos</h5>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-card-heading text-white"></i>  Ingrese numero de vuelo</span>
+        <input type="number" [(ngModel)]="updateFlight.id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Número de cédula">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-warning text-center mt-2" type="submit" (click)="deleteFlight(updateFlight)">
+            Eliminar vuelo
+        </button>
+    </div >
+
+
 
     
 </div>

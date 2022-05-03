@@ -1,3 +1,4 @@
+
 <div class="container">
     <h4>Seleccione el vuelo que desea</h4>
     <table class="table table-responsive align-middle">
@@ -8,7 +9,6 @@
             <th scope="col">Hora de llegada</th>
             <th scope="col">Numero de pasajeros</th>
             <th scope="col">Precio (Colones)</th>
-            <th scope="col">Selección</th>
           </tr>
         </thead>
             <tbody *ngFor="let result of selectionsList">
@@ -18,16 +18,45 @@
                     <td>{{result.llegada}}</td>
                     <td>{{result.pasajeros}}</td>
                     <td>{{result.precio}}</td>
-                    <td>
-                        <input type="radio" name="radio"><span class="checkmark"></span> 
-                    </td>
                 </tr>
             </tbody>
         </table>
-        <div class="d-grid gap-2 d-md-flex rounded-1">
-            <button (click)="goToPage('payment')" class="btn btn-primary me-md-2 justify-content-md-end" type="button">Confirmar reservación</button>
-            <button (click)="goToPage('home_page')" class="btn btn-warning justify-content-left" type="button">Regresar</button>
-        </div>
               
 </div>
+
+<div class="row g-3 shadow-lg p-5 bg-dark" style="margin-top:10px">
+    <h5>Reservación</h5>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+                class="bi bi-person-plus-fill text-white"></i>  Número de reservación</span>
+        <input type="number" [(ngModel)]="newReservation.id" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Numero">
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-person-plus-fill text-white"></i>  Fecha Emisión</span>
+        <input type="date" [(ngModel)]="newReservation.date_of_issue" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Emisión">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+            class="bi bi-person-plus-fill text-white"></i>  Fecha vencimiento</span>
+        <input type="date" [(ngModel)]="newReservation.expiration_date" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Vencimiento">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+                class="bi bi-person-plus-fill text-white"></i>  Cedula cliente</span>
+        <input type="number" [(ngModel)]="newReservation.id_user" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Numero">
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <span class="input-group-text bg-primary"><i
+                class="bi bi-person-plus-fill text-white"></i>  Número de vuelo</span>
+        <input type="number" [(ngModel)]="newReservation.id_flight" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Numero">
+    </div>
+    <div class="col-md-4 ">
+        <button (click)="addReservation(newReservation)" class="btn btn-success me-md-2 justify-content-md-end" type="button">Confirmar reservación</button>
+        <button (click)="goToPage('home_page')" class="btn btn-warning justify-content-left" type="button">Regresar</button>
+    </div>
+
+</div>
+
 

@@ -25,6 +25,8 @@ export class FlightMngmtComponent implements OnInit {
   routeList: Route[]=[];
   airportList: Airport[]=[]
   airplaneList: Airplane[]=[]
+  flightList: Flight[] = []
+  updateFlight: Flight = new Flight
 
   constructor(private service:RouteService, 
     private travelService: TravelService,
@@ -37,6 +39,7 @@ export class FlightMngmtComponent implements OnInit {
     this.getRoutes();
     this.getAirport();
     this.getAirplane();
+    this.getFlights();
   }
   getAirplane() {
     this.airplane.getAirplanes().subscribe( (airplanes:Airplane[]) => {
@@ -76,6 +79,20 @@ export class FlightMngmtComponent implements OnInit {
     {
       window.location.reload()
     }, ()=>alert("No se pudo registrar vuelo"))
+  }
+
+  getFlights(){
+    this.flight.getFlight().subscribe((flights: Flight[]) => {
+      this.flightList = plainToInstance(Flight, flights)
+    })
+  }
+
+  deleteFlight(flight: Flight){
+    this.flight.deleteFlight(flight.id).subscribe(()=>
+    {
+      window.location.reload();
+
+    },()=> alert("No se pudo eliminar  vuelo, por favor intente de nuevo!"))
   }
 
 
