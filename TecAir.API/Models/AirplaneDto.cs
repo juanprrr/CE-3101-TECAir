@@ -2,6 +2,9 @@
 
 namespace TecAir.API.Models
 {
+    /// <summary>
+    /// This class is assigned for the airplanes data.
+    /// </summary>
     public class AirplaneDto
     {
         [Key]

@@ -2,6 +2,9 @@
 
 namespace TecAir.API.Models
 {
+    /// <summary>
+    /// This class is assigned for the seats data.
+    /// </summary>
     public class SeatDto
     {
         [Key]

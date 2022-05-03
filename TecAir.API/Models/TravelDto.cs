@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TecAir.API.Models
 {
+    /// <summary>
+    /// This class is assigned for the travels data.
+    /// </summary>
     public class TravelDto
     {
         [Key, Column(Order = 1)]

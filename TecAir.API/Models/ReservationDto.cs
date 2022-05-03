@@ -2,6 +2,9 @@
 
 namespace TecAir.API.Models
 {
+    /// <summary>
+    /// This class is assigned for the employees data.
+    /// </summary>
     public class ReservationDto
     {
         [Key]
